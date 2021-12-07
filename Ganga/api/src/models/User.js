@@ -69,6 +69,12 @@ module.exports = (sequelize) => {
                 type: DataTypes.BOOLEAN,
             },
 
+            Cart: {
+                type: DataTypes.ARRAY(DataTypes.JSON),
+                defaultValue: [],
+                // allowNull: false,
+              },
+
         },
         { timestamps: false, paranoid: true }
     );

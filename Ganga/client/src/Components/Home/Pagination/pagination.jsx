@@ -1,27 +1,25 @@
 import React from "react";
+import s from './Pagination.module.css'
 
-export function Pagination({ elementsPerPage, totalElements, paginate }) {
+export default function Pagination({ elementsPerPage, allProduct, paginate }) {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalElements / elementsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(allProduct?.length / elementsPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        {pageNumbers.map((number) => (
-          <li key={number} class="page-item">
+    <nav className={s.paginacion}>
+      <ul >
+        {pageNumbers &&
+        pageNumbers.map((number) => (
+          <li key={number} >
             <button
-              class="page-link"
-              onClick={(e) => {
-                e.preventDefault();
-                paginate(number);
-              }}
-            >
-              {number}{" "}
-            </button>
-          </li>
+             className={s.btn}
+              onClick={() => paginate(number)}
+              >{number}
+              </button>
+         </li>
         ))}
       </ul>
     </nav>

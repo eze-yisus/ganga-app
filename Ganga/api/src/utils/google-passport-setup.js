@@ -14,7 +14,7 @@ passport.use(
     async function (accessToken, refreshToken, profile, cb) {
       const defaultUser = {
         name: profile.name.givenName,
-        lastname: profile.name.familyName,
+        surname: profile.name.familyName,
         mail: profile.emails[0].value,
         // id: profile.id,
       };

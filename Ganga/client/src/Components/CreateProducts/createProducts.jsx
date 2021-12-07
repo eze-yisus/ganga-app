@@ -27,7 +27,7 @@ function validate(input) {
         errores.image = 'Es obligatorio una imagen del prducto'
 
     } else if (!input.idCategory) {
-        errores.idCategory = 'es obligado una Categoria'
+        errores.idCategory = 'es obligatorio una Categoria'
     }
     return errores
 }

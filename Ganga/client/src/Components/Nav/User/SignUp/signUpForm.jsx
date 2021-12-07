@@ -11,10 +11,10 @@ export default function SignUpForm() {
 
   const [input, setInput] = useState({
     name: "",
-    lastname: "",
+    surname: "",
     mail: "",
     password: "",
-    numero: "",
+    cellphone: "",
     address: "",
   });
 
@@ -24,14 +24,14 @@ export default function SignUpForm() {
     let errors = {};
     if (!input.name) {
       errors.name = "Ingrese su nombre.";
-    } else if (!input.lastname) {
-      errors.lastname = "Ingrese su apellido.";
+    } else if (!input.surname) {
+      errors.surname = "Ingrese su apellido.";
     } else if (!input.mail) {
       errors.mail = "Ingrese su correo.";
     } else if (!input.password) {
       errors.password = "Ingrese su contraseña.";
-    } else if (!input.numero) {
-      errors.numero = "Ingrese su numero de telefono.";
+    } else if (!input.cellphone) {
+      errors.cellphone = "Ingrese su numero de telefono.";
     } else if (!input.address) {
       errors.address = "Ingrese la dirección de su vivienda.";
     }
@@ -58,14 +58,14 @@ export default function SignUpForm() {
     setTimeout(() => {
       dispatch(localLogin(input));
     }, 1000);
-    setInput({
-      name: "",
-      lastname: "",
-      mail: "",
-      password: "",
-      numero: "",
-      address: "",
-    });
+    // setInput({
+    //   name: "",
+    //   surname: "",
+    //   mail: "",
+    //   password: "",
+    //   cellphone: "",
+    //   address: "",
+    // });
     navigate("/");
   }
 
@@ -90,13 +90,13 @@ export default function SignUpForm() {
         <div className="pt-5">
           <input
             className="w-96 border-gray-400 border-2 rounded pl-2"
-            name="lastname"
+            name="surname"
             type="text"
             placeholder="apellido"
-            value={input.lastname}
+            value={input.surname}
             onChange={handleChange}
           ></input>
-          {errors.lastname && <p>{errors.lastname}</p>}
+          {errors.surname && <p>{errors.surname}</p>}
         </div>
 
         <div className="pt-5">
@@ -126,13 +126,13 @@ export default function SignUpForm() {
         <div className="pt-5">
           <input
             className="w-96 border-gray-400 border-2 rounded pl-2"
-            name="numero"
+            name="cellphone"
             type="number"
-            placeholder="numero"
-            value={input.numero}
+            placeholder="cellphone"
+            value={input.cellphone}
             onChange={handleChange}
           ></input>
-          {errors.numero && <p>{errors.numero}</p>}
+          {errors.cellphone && <p>{errors.cellphone}</p>}
         </div>
 
         <div className="py-5">
@@ -154,10 +154,10 @@ export default function SignUpForm() {
           disabled={
             !(
               input.name &&
-              input.lastname &&
+              input.surname &&
               input.password &&
               input.mail &&
-              input.numero &&
+              input.cellphone &&
               input.address
             )
           }

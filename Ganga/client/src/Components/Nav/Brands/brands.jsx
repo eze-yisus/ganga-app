@@ -8,7 +8,7 @@ const marcas = [
     {Nombre: 'Adidas', Id:'2'}, 
     {Nombre: "Puma",id:'3'}, 
     {Nombre: 'Xiaomi', Id:'4'}, 
-    {Nombre: 'Sansung', Id:'5'}, 
+    {Nombre: 'Samsung', Id:'5'}, 
     {Nombre: "Iphone",id:'6'}, 
     {Nombre: 'Motorolla', Id:'7'}, 
     {Nombre: 'Hp', Id:'8'}, 

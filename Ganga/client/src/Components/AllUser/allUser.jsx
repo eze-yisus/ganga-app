@@ -22,7 +22,7 @@ export default function AllUser() {
                         <div key={el.id}>
                             <CardUser
                                 name={el.name}
-                                lastname={el.lastname}
+                                surname={el.surname}
                                 mail={el.mail}
                                 birthdate={el.birthdate}
                                 address={el.address}

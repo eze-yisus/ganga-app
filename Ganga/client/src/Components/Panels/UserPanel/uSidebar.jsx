@@ -16,10 +16,10 @@ export default function UserSidebar({productos, verProductos}) {
         <div className={s.sidebar}>
             <h3 className="p-10 pt-32 pl-16 text-3xl opacity-60">opciones</h3>
             <ul>
-                <li className="p-8 pr-48 text-xl hover:bg-gray-400">
+                <li className="p-8  text-xl hover:bg-gray-400">
                     <button onClick={Toggle}>Mis Datos</button>
                 </li>
-                <li className="p-8 pr-48 text-xl hover:bg-gray-400">
+                <li className="p-8 text-xl hover:bg-gray-400">
                     <button onClick={toggle}>Mis Productos</button>
                 </li>
             </ul>

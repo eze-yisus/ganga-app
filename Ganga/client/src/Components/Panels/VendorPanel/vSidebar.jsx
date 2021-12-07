@@ -1,36 +1,25 @@
 import React from "react";
-import s from "./vSidebar.module.css";
+import s from "./vendor.module.css";
 
 export default function VendedorSidebar({
-  usuarios,
-  verUsuarios,
   productos,
   verProductos,
-  vendedores,
-  verVendedores,
+  ventas,
+  verVentas,
 }) {
   const toggle = () => {
-    verUsuarios((usuarios = true));
-    verProductos((productos = false));
-    verVendedores((vendedores = false));
+    verProductos((productos = true));
+    verVentas((ventas = false));
   };
 
   const Toggle = () => {
-    verProductos((productos = true));
-    verUsuarios((usuarios = false));
-    verVendedores((vendedores = false));
-  };
-
-  const togle = () => {
-    verVendedores((vendedores = true));
-    verUsuarios((usuarios = false));
     verProductos((productos = false));
+    verVentas((ventas = true));
   };
 
   const Togle = () => {
-    verVendedores((vendedores = false));
+    verVentas((ventas = false));
     verProductos((productos = false));
-    verUsuarios((usuarios = false));
   };
 
   return (
@@ -46,9 +35,6 @@ export default function VendedorSidebar({
           </li>
           <li className="p-8 text-xl hover:bg-gray-400 active:bg-gray-500">
             <button onClick={Toggle}>Tus Ventas</button>
-          </li>
-          <li className="p-8 text-xl hover:bg-gray-400 active:bg-gray-500">
-            <button onClick={togle}>Otro</button>
           </li>
         </ul>
       </div>

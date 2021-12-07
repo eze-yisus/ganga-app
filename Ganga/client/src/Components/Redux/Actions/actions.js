@@ -16,7 +16,23 @@ import {
   USER_MESSAGE,
   FILTER_BY_SEARCH,
   GET_SUBCATEGORIES,
-  GET_ALL_USERS
+  GET_ALL_USERS,
+  FILTER_BY_SUB_CATEGORY,
+  GET_FILTER_BY_CATEGORY,
+  GET_SUB_CAT_BY_NAME,
+  PUT_USER,
+  ADD_PRODUCT,
+  DECRESE_PRODUCT,
+  SUM_PRODUCT,
+  CLEAR_CART,
+  DELETE_ITEM,
+  MERCADO_PAGO,
+  MERCADO_PAGO2,
+  SUCCESS_MAIL,
+  FAIL_MAIL,
+  DELETE_USER,
+  DELETE_PRODUCT,
+  LOGOUT
 } from "./const";
 
 export function getProduct() {
@@ -25,6 +41,68 @@ export function getProduct() {
     dispatch({
       type: GET_PRODUCT,
       payload: product.data,
+    });
+  };
+}
+
+// carrito
+export function addProduct(payload) {
+  // --------> payload {id:"id usario", item: {id:"id producto"}, que: >=1}({id:input, item:{id: input2}, que: input3})
+  console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
+  return async function (dispatch) {
+    const response = await axios.post(
+      "http://localhost:3001/user/addCart",
+      payload
+    );
+    dispatch({
+      type: ADD_PRODUCT,
+      payload: response.data,
+    });
+  };
+}
+
+// carrito
+export function decreseProduct(payload) {
+  // --------> payload {id:"id usario", item: {id:"id producto"}, que: >=1}({id:input, item:{id: input2}, que: input3})
+  console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
+  return async function (dispatch) {
+    const response = await axios.post(
+      "http://localhost:3001/user/addCart",
+      payload
+    );
+    dispatch({
+      type: DECRESE_PRODUCT,
+      payload: response.data,
+    });
+  };
+}
+
+// carrito
+export function clearCart(payload) {
+  console.log("soy el payload de clearCart: ", payload);
+  return async function (dispatch) {
+    const response = axios.put(
+      `http://localhost:3001/user/clearCart?id=${payload}`
+    );
+    console.log("soy el response de clearCart: ", response);
+    dispatch({
+      type: CLEAR_CART,
+      payload: response.data,
+    });
+  };
+}
+
+// carrito
+export function deleteItem(payload) {
+  console.log("soy el payload de deleteItem: ",payload);
+  return async function (dispatch) {
+    const response = axios.put(
+      `http://localhost:3001/user/deleteProduct`,payload
+    );
+    console.log("soy el response de deleteItem: ", response);
+    dispatch({
+      type: DELETE_ITEM,
+      payload: response.data,
     });
   };
 }
@@ -64,7 +142,6 @@ export function getUserInfoGoogle(payload) {
     const arr = await axios.get(`${URL}sessionActive/`, {
       withCredentials: true,
     });
-    console.log("soy el arr ", arr)
     return dispatch({
       type: GET_INFO_GOOGLE,
       payload: arr.data,
@@ -161,29 +238,88 @@ export function userMessage(payload) {
 
 export function postProducts(payload) {
   return async function (dispatch) {
-    let response = await axios.post(URL + 'product/', payload)
-    console.log("Soy respuesta de la actions", response.data)
-    return response
-  }
+    let response = await axios.post(URL + "product/", payload);
+    return response;
+  };
 }
 
 export function getSubcategory(payload) {
-  console.log(payload)
   return {
     type: GET_SUBCATEGORIES,
-    payload
-  }
+    payload,
+  };
 }
-export function getAllUsers(){
+export function getAllUsers() {
   return async function (dispatch) {
-    let user = await axios.get(URL + 'user')
+    let user = await axios.get(URL + "user");
     dispatch({
       type: GET_ALL_USERS,
-      payload: user.data
-    })
-  }
+      payload: user.data,
+    });
+  };
 }
 
+export function deleteUser(payload) {
+  return async function (dispatch) {
+    axios
+      .delete(URL + "user?id=" + payload)
+      .then((response) => {
+        dispatch({
+          type: DELETE_USER,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+}
+
+export function deleteProduct(payload) {
+  return async function (dispatch) {
+    axios
+      .delete(URL + "product?id=" + payload)
+      .then((response) => {
+        dispatch({
+          type: DELETE_PRODUCT,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+}
+
+export function updateUser(payload) {
+  return async function (dispatch) {
+    await axios
+      .put(`${URL}user`, payload)
+      .then((response) => {
+        dispatch({
+          type: PUT_USER,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+}
+ export function filterBySubCat (payload){
+   return{
+     type: FILTER_BY_SUB_CATEGORY,
+     payload
+   }
+ }
+ export function getFilterByCategory (payload){
+   console.log(payload)
+   return{
+    type: GET_FILTER_BY_CATEGORY,
+    payload
+   }
+ }
+
+ export function getSubCategoryByName(payload){
+   return{
+     type: GET_SUB_CAT_BY_NAME,
+     payload
+   }
+ }
 // export function geUserInfo(id){
 //   return async (dispatch) => {
 //     try {
@@ -199,3 +335,75 @@ export function getAllUsers(){
 //     }
 //   }
 // }
+
+// mercadopago
+export function compraMP(payload) {
+  return async function (dispatch) {
+  await axios
+    .post(`${URL}mercadoPago2`, payload,)
+    .then((response) => {
+
+      dispatch({
+        type: MERCADO_PAGO,
+        payload: response.data,
+      });
+    })
+    .catch((error) => console.log(error));
+};
+}
+
+export function compraMP2(payload) {
+  return async function (dispatch) {
+  await axios
+    .post(`${URL}mercadoPago`, payload,)
+    .then((response) => {
+
+      dispatch({
+        type: MERCADO_PAGO2,
+        payload: response.data,
+      });
+    })
+    .catch((error) => console.log(error));
+};
+}
+
+export function successMail(payload) {
+  return async function (dispatch) {
+  await axios
+    .post(`${URL}successMail`, payload, { withCredentials: true })
+    .then((response) => {
+
+      dispatch({
+        type: SUCCESS_MAIL,
+        payload: response.data,
+      });
+    })
+    .catch((error) => console.log(error));
+};
+}
+
+export function failMail(payload) {
+  return async function (dispatch) {
+  await axios
+    .post(`${URL}failMail`, payload, { withCredentials: true })
+    .then((response) => {
+
+      dispatch({
+        type: FAIL_MAIL,
+        payload: response.data,
+      });
+    })
+    .catch((error) => console.log(error));
+};
+}
+
+// cerrar sesion
+export function logout() {
+  return async function (dispatch) {
+    let response = await axios.get("http://localhost:3001/loginGoogle/logout", { withCredentials: true });
+    dispatch({
+      type: LOGOUT,
+      payload: response.data,
+    });
+  };
+}
