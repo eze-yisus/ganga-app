@@ -60,6 +60,7 @@ export default function UserList({ users }) {
   function handleDelete(id) {
     dispatch(deleteUser(id));
     setRows(rows.filter((i) => i.id !== id));
+    window.location.reload();
   }
 
   return (

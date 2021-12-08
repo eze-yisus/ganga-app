@@ -21,6 +21,8 @@ export default function AdminPanel() {
   const [vendedores, verVendedores] = useState(false);
   const products = useSelector((state) => state.product);
 
+  console.log("allUsers", allUsers)
+
   useEffect(() => {
     dispatch(getProduct());
   }, [dispatch]);
@@ -62,7 +64,7 @@ export default function AdminPanel() {
                   </div>
                 </div>
               ) : (
-                <div className={s.containerUsuarios}>
+                <div  className={s.container}>
                   <AdminSidebar
                     usuarios={usuarios}
                     verUsuarios={verUsuarios}
@@ -71,14 +73,14 @@ export default function AdminPanel() {
                     vendedores={vendedores}
                     verVendedores={verVendedores}
                   />
-                  <div className={s.usuariosBody}>
+                   <div className={s.body}>
                     <UserList users={users} />
                   </div>
                 </div>
               )}
             </div>
           ) : (
-            <div className={s.containerProductos}>
+            <div  className={s.container}>
               <AdminSidebar
                 usuarios={usuarios}
                 verUsuarios={verUsuarios}
@@ -87,14 +89,14 @@ export default function AdminPanel() {
                 vendedores={vendedores}
                 verVendedores={verVendedores}
               />
-              <div className={s.productosBody}>
+              <div className={s.body}>
                 <ProductList  products={products}/>
               </div>
             </div>
           )}
         </div>
       ) : (
-        <div className={s.containerVendedores}>
+        <div  className={s.container}>
           <AdminSidebar
             usuarios={usuarios}
             verUsuarios={verUsuarios}
@@ -103,7 +105,7 @@ export default function AdminPanel() {
             vendedores={vendedores}
             verVendedores={verVendedores}
           />
-          <div className={s.vendedoresBody}>
+           <div className={s.body}>
             <VendorList vendors={vendors} />
           </div>
         </div>

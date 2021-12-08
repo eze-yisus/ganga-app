@@ -32,7 +32,8 @@ import {
   FAIL_MAIL,
   DELETE_USER,
   DELETE_PRODUCT,
-  LOGOUT
+  LOGOUT,
+  PRODUCTS_BY_NAME
 } from "./const";
 
 export function getProduct() {
@@ -317,6 +318,14 @@ export function updateUser(payload) {
  export function getSubCategoryByName(payload){
    return{
      type: GET_SUB_CAT_BY_NAME,
+     payload
+   }
+ }
+
+ export function productsByName(payload){
+   console.log(payload)
+   return{
+     type: PRODUCTS_BY_NAME,
      payload
    }
  }

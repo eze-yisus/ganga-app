@@ -10,7 +10,7 @@ import LoginSuccess from "./Components/Nav/User/LoginGoogle/loginSuccess";
 import CreateProduct from "./Components/CreateProducts/createProducts";
 import ShopCart from "./Components/ShoppCart/shoppCart.jsx";
 import Panel from "./Components/Panels/Panel/panel";
-import Modificar from "./Components/Panels/UserPanel/uInfo";
+import Modificar from "./Components/Panels/AdminPanel/uInfo";
 
 import { SuccesMp } from "./Components/MercadoPago/successMp";
 import { FailMp } from "./Components/MercadoPago/failMp";

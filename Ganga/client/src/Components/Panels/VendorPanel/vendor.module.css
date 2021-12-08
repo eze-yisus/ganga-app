@@ -2,9 +2,6 @@
     display: flex;
 }
 
-.sidebar {
-    flex: 1;
-}
 
 .body {
     flex: 4;
@@ -17,3 +14,4 @@
     border-width: 4px;
     border-color: rgb(165, 165, 165);
 }
+

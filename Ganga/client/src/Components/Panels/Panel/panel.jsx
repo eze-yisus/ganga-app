@@ -10,13 +10,13 @@ import { getUserInfoGoogle } from "../../Redux/Actions/actions";
 export default function Panel() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.getInfoGoogle);
-  
+ 
     useEffect(() => {
         dispatch(getUserInfoGoogle());
       }, [dispatch]);
     return (
         <div>
-     { user.login ? 
+     { user?.login && user?.login ? 
      <div>
         {
             user && user.admin ?

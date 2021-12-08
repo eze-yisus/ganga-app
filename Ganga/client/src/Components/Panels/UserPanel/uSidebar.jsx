@@ -20,7 +20,7 @@ export default function UserSidebar({productos, verProductos}) {
                     <button onClick={Toggle}>Mis Datos</button>
                 </li>
                 <li className="p-8 text-xl hover:bg-gray-400">
-                    <button onClick={toggle}>Mis Productos</button>
+                    <button onClick={toggle}>Mis Compras</button>
                 </li>
             </ul>
         </div>

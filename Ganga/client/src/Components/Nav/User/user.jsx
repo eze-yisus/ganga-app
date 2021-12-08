@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu } from "@headlessui/react";
 import { useDispatch } from "react-redux";
 import {logout} from "../../Redux/Actions/actions"
@@ -6,12 +7,13 @@ import Avatar from "@mui/material/Avatar";
 
 export default function User() {
   const dispatch = useDispatch();
-  // console.log(dispatch);
+  const navigate = useNavigate();
 
   function handleLogout(e) {
     e.preventDefault();
     dispatch(logout());
     // history.push("/");
+    navigate("/");
     window.location.reload()
   }
 

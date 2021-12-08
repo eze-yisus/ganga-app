@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { useNavigate, Link } from "react-router-dom";
 
 import { updateUser, getAllUsers } from "../../Redux/Actions/actions";
-import s from './user.module.css';
+import s from './admin.module.css';
 
 
 export default function UserInfo() {
