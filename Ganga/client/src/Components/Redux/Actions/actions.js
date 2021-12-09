@@ -48,68 +48,6 @@ export function getProduct() {
   };
 }
 
-// carrito
-export function addProduct(payload) {
-  // --------> payload {id:"id usario", item: {id:"id producto"}, que: >=1}({id:input, item:{id: input2}, que: input3})
-  console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
-  return async function (dispatch) {
-    const response = await axios.post(
-      "http://localhost:3001/user/addCart",
-      payload
-    );
-    dispatch({
-      type: ADD_PRODUCT,
-      payload: response.data,
-    });
-  };
-}
-
-// carrito
-export function decreseProduct(payload) {
-  // --------> payload {id:"id usario", item: {id:"id producto"}, que: >=1}({id:input, item:{id: input2}, que: input3})
-  console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
-  return async function (dispatch) {
-    const response = await axios.post(
-      "http://localhost:3001/user/addCart",
-      payload
-    );
-    dispatch({
-      type: DECRESE_PRODUCT,
-      payload: response.data,
-    });
-  };
-}
-
-// carrito
-export function clearCart(payload) {
-  console.log("soy el payload de clearCart: ", payload);
-  return async function (dispatch) {
-    const response = axios.put(
-      `http://localhost:3001/user/clearCart?id=${payload}`
-    );
-    console.log("soy el response de clearCart: ", response);
-    dispatch({
-      type: CLEAR_CART,
-      payload: response.data,
-    });
-  };
-}
-
-// carrito
-export function deleteItem(payload) {
-  console.log("soy el payload de deleteItem: ",payload);
-  return async function (dispatch) {
-    const response = axios.put(
-      `http://localhost:3001/user/deleteProduct`,payload
-    );
-    console.log("soy el response de deleteItem: ", response);
-    dispatch({
-      type: DELETE_ITEM,
-      payload: response.data,
-    });
-  };
-}
-
 export function getProductByName(name) {
   return async function (dispatch) {
     try {
@@ -252,6 +190,7 @@ export function getSubcategory(payload) {
     payload,
   };
 }
+
 export function getAllUsers() {
   return async function (dispatch) {
     let user = await axios.get(URL + "user");
@@ -303,26 +242,29 @@ export function updateUser(payload) {
       .catch((error) => console.log(error));
   };
 }
- export function filterBySubCat (payload){
-   return{
-     type: FILTER_BY_SUB_CATEGORY,
-     payload
-   }
- }
- export function getFilterByCategory (payload){
-   console.log(payload)
-   return{
+
+export function filterBySubCat(payload) {
+  return {
+    type: FILTER_BY_SUB_CATEGORY,
+    payload
+  }
+}
+
+export function getFilterByCategory(payload) {
+  console.log(payload)
+  return {
     type: GET_FILTER_BY_CATEGORY,
     payload
-   }
- }
+  }
+}
 
- export function getSubCategoryByName(payload){
-   return{
-     type: GET_SUB_CAT_BY_NAME,
-     payload
-   }
- }
+export function getSubCategoryByName(payload) {
+  return {
+    type: GET_SUB_CAT_BY_NAME,
+    payload
+  }
+}
+
 // export function geUserInfo(id){
 //   return async (dispatch) => {
 //     try {
@@ -342,62 +284,62 @@ export function updateUser(payload) {
 // mercadopago
 export function compraMP(payload) {
   return async function (dispatch) {
-  await axios
-    .post(`${URL}mercadoPago2`, payload,)
-    .then((response) => {
+    await axios
+      .post(`${URL}mercadoPago2`, payload,)
+      .then((response) => {
 
-      dispatch({
-        type: MERCADO_PAGO,
-        payload: response.data,
-      });
-    })
-    .catch((error) => console.log(error));
-};
+        dispatch({
+          type: MERCADO_PAGO,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
 }
 
 export function compraMP2(payload) {
   return async function (dispatch) {
-  await axios
-    .post(`${URL}mercadoPago`, payload,)
-    .then((response) => {
+    await axios
+      .post(`${URL}mercadoPago`, payload,)
+      .then((response) => {
 
-      dispatch({
-        type: MERCADO_PAGO2,
-        payload: response.data,
-      });
-    })
-    .catch((error) => console.log(error));
-};
+        dispatch({
+          type: MERCADO_PAGO2,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
 }
 
 export function successMail(payload) {
   return async function (dispatch) {
-  await axios
-    .post(`${URL}successMail`, payload, { withCredentials: true })
-    .then((response) => {
+    await axios
+      .post(`${URL}successMail`, payload, { withCredentials: true })
+      .then((response) => {
 
-      dispatch({
-        type: SUCCESS_MAIL,
-        payload: response.data,
-      });
-    })
-    .catch((error) => console.log(error));
-};
+        dispatch({
+          type: SUCCESS_MAIL,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
 }
 
 export function failMail(payload) {
   return async function (dispatch) {
-  await axios
-    .post(`${URL}failMail`, payload, { withCredentials: true })
-    .then((response) => {
+    await axios
+      .post(`${URL}failMail`, payload, { withCredentials: true })
+      .then((response) => {
 
-      dispatch({
-        type: FAIL_MAIL,
-        payload: response.data,
-      });
-    })
-    .catch((error) => console.log(error));
-};
+        dispatch({
+          type: FAIL_MAIL,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
 }
 
 // cerrar sesion
@@ -414,43 +356,43 @@ export function logout() {
 // actualizar stock de los productos despues de la compra
 export function updateStock(payload) {
   return async function (dispatch) {
-  await axios
-    .post(`${URL}product/update`, payload)
-    .then((response) => {
+    await axios
+      .post(`${URL}product/update`, payload)
+      .then((response) => {
 
-      dispatch({
-        type: UPDATE_STOCK,
-        payload: response.data,
-      });
-    })
-    .catch((error) => console.log(error));
-};
+        dispatch({
+          type: UPDATE_STOCK,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
 }
 
 // postear una orden de compra 
 export function postOrder(payload) {
   return async function (dispatch) {
-  await axios
-    .post(`${URL}order`, payload)
-    .then((response) => {
+    await axios
+      .post(`${URL}order`, payload)
+      .then((response) => {
 
-      dispatch({
-        type: POST_ORDER,
-        payload: response.data,
-      });
-    })
-    .catch((error) => console.log(error));
-};
+        dispatch({
+          type: POST_ORDER,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
 }
 
 export function getAllOrders() {
-return async function (dispatch) {
-  let orders = await axios.get(URL + "order");
-  dispatch({
-    type: GET_ALL_ORDERS,
-    payload: orders.data
-  });
- };
+  return async function (dispatch) {
+    let orders = await axios.get(URL + "order");
+    dispatch({
+      type: GET_ALL_ORDERS,
+      payload: orders.data
+    });
+  };
 }
 
 // export function getAllUsers() {
@@ -462,3 +404,65 @@ return async function (dispatch) {
 //     });
 //   };
 // }
+
+// carrito
+export function addProduct(payload) {
+  // --------> payload {id:"id usario", item: {id:"id producto"}, que: >=1}({id:input, item:{id: input2}, que: input3})
+  console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
+  return async function (dispatch) {
+    const response = await axios.post(
+      "http://localhost:3001/user/addCart",
+      payload
+    );
+    dispatch({
+      type: ADD_PRODUCT,
+      payload: response.data,
+    });
+  };
+}
+
+// carrito
+export function decreseProduct(payload) {
+  // --------> payload {id:"id usario", item: {id:"id producto"}, que: >=1}({id:input, item:{id: input2}, que: input3})
+  console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
+  return async function (dispatch) {
+    const response = await axios.post(
+      "http://localhost:3001/user/addCart",
+      payload
+    );
+    dispatch({
+      type: DECRESE_PRODUCT,
+      payload: response.data,
+    });
+  };
+}
+
+// carrito
+export function clearCart(payload) {
+  console.log("soy el payload de clearCart: ", payload);
+  return async function (dispatch) {
+    const response = axios.put(
+      `http://localhost:3001/user/clearCart?id=${payload}`
+    );
+    console.log("soy el response de clearCart: ", response);
+    dispatch({
+      type: CLEAR_CART,
+      payload: response.data,
+    });
+  };
+}
+
+// carrito
+export function deleteItem(payload) {
+  console.log("soy el payload de deleteItem: ", payload);
+  return async function (dispatch) {
+    const response = axios.put(
+      `http://localhost:3001/user/deleteProduct`, payload
+    );
+    console.log("soy el response de deleteItem: ", response);
+    dispatch({
+      type: DELETE_ITEM,
+      payload: response.data,
+    });
+  };
+}
