@@ -36,7 +36,7 @@ export default function ProductId() {
     dispatch(
       addProduct({ id: User.id, item: { id: info.id }, cant: 1, que: "+" })
     );
-    navigate("/shopCart");
+    alert("El producto se agregó al carrito")
   }
 
   useEffect(() => {

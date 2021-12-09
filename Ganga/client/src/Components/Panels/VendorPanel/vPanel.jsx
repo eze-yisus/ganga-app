@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import Nav from "../../Nav/NavBar/nav";
 import VendedorSidebar from "./vSidebar";
-import s from "./vendor.module.css";
 import InfoUser from "../UserPanel/infoUser";
+import s from "./vendor.module.css";
+import { getAllOrders } from "../../Redux/Actions/actions";
 
-export default function VendorPanel() {
-  const [datos] = useState(false);
+export default function VendorPanel({user}) {
+  
+  const dispatch = useDispatch();
+
   const [productos, verProductos] = useState(false);
   const [ventas, verVentas] = useState(false);
-  const [compras, verCompras] = useState(false)
+  const [compras, verCompras] = useState(false);
+  const orders = useSelector((state) => state.orders);
+
+  useEffect(() => {
+    dispatch(getAllOrders());
+  }, [dispatch]);
+
+
+  console.log("user", user);
+  console.log("orders",orders);
 
   return (
     <div className="bg-gray-100">

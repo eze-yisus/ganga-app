@@ -24,11 +24,11 @@ export default function Panel() {
         }
         {
             !user.admin && user.seller ? 
-            <VendorPanel/> : null
+            <VendorPanel user={user}/> : null
         }
         {
             !user.admin && !user.seller ? 
-            <UserPanel/> : null
+            <UserPanel user={user}/> : null
         }   
     </div>
     : <h1>cargando...</h1> }

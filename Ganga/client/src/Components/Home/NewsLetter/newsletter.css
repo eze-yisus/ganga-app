@@ -1,0 +1,275 @@
+.NewsletterContainer {
+  width: 30vw;
+  height: 320px;
+  margin: 100px 0;
+  padding: 20px 0;
+  display: flex;
+  position: absolute;
+  top: 354%;
+  left: 65%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* background: #cccccc40; */
+}
+
+.NewsletterTitle {
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.FormNewsLetter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.FormNewsLetter form {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.NewsletterInput {
+  width: 30vw;
+  height: 30px;
+  padding: 10px;
+  justify-content: center;
+  position: absolute;
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.NewsletterInput:focus {
+  outline: solid 1px #f00;
+}
+
+.ButtonNewsletter {
+  width: 120px;
+  height: 35px;
+  top: 194px;
+  justify-content: center;
+  position: absolute;
+  right: 10%;
+  border: none;
+  background: #000000;
+  color: #fff;
+  border-radius: 5px;
+  margin: 20px 0;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.5s all;
+  clear: both;
+}
+
+.ButtonNewsletter:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .NewsletterTitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .NewsletterSubTitle {
+    font-size: 14px;
+    color: white;
+  }
+
+  .FormNewsLetter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .FormNewsLetter form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .NewsletterInput {
+    width: 80%;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    font-size: 1vw;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .ButtonNewsletter {
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    border: none;
+    background: #000000;
+    color: #fff;
+    border-radius: 5px;
+    border-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.5s all;
+    clear: both;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .NewsletterContainer {
+    width: 0vw;
+    max-height: 250px;
+    margin: 50px 0;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #cccccc40;
+  }
+
+  .NewsletterTitle {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  .NewsletterSubTitle {
+    font-size: 20px;
+  }
+
+  .FormNewsLetter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .FormNewsLetter form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .NewsletterInput {
+    width: 50%;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .ButtonNewsletter {
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    border: none;
+    background: #000000;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.5s all;
+    clear: both;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .NewsletterTitle {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+
+  .NewsletterSubTitle {
+    font-size: 16px;
+  }
+
+  .NewsletterContainer {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: #cccccc40;
+  }
+
+  .NewsletterInput {
+    width: 55vw;
+    height: 30px;
+    font-size: 16px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .FormNewsLetter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .FormNewsLetter form {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 575px) {
+  .NewsletterContainer {
+    min-height: 250px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #cccccc40;
+  }
+
+  .NewsletterTitle {
+    font-size: 28px;
+  }
+
+  .NewsletterSubTitle {
+    font-size: 16px;
+  }
+
+  .NewsletterInput {
+    width: 60vw;
+    height: 30px;
+    font-size: 3vw;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .ButtonNewsletter {
+    width: 80px;
+    height: 30px;
+  }
+}

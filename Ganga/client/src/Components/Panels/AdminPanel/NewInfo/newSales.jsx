@@ -1,7 +1,18 @@
 import React from "react";
 import s from "../admin.module.css";
 
-export default function NewSales() {
+export default function NewSales({today, sales}) {
+
+  let Sales = sales.filter(s => s.fecha === today);
+  let transacciones = Sales.map(s => {
+    return {
+     total: s.total,
+     productos: s.products.reduce((a,b) => a + b, 0),
+     usuario: s.usuario[0].name + " " + s.usuario[0].surname
+    }
+  })
+ 
+
   return (
     <div className={s.newSalesContainer}>
       <div className="py-5 text-center">
@@ -13,85 +24,30 @@ export default function NewSales() {
             <span>Usuario</span>
           </th>
           <th>
-            <span>Producto</span>
+            <span>Productos comprados</span>
           </th>
           <th>
-            <span>Precio</span>
-          </th>
-          <th>
-            <span>Fecha</span>
+            <span>Total</span>
           </th>
         </tr>
+       { transacciones.map(t=> {
+         return (
+          <>
         <tr className={s.sale}>
           <td className="h-10">
-            <span>Hugo Pumpido</span>
+            <span>{t.usuario}</span>
           </td>
           <td className="pb-4">
-            <span> Guantes </span>
+            <span> {t.productos} </span>
           </td>
           <td className="pb-4">
-            <span> $2500</span>
-          </td>
-          <td className="pb-4">
-            <span>3/12/2021</span>
+            <span> $ {t.total}</span>
           </td>
         </tr>
-        <tr className={s.sale}>
-          <td className="pb-4">
-            <span>Hugo Pumpido</span>
-          </td>
-          <td className="pb-4">
-            <span> Guantes </span>
-          </td>
-          <td className="pb-4">
-            <span> $2500</span>
-          </td>
-          <td className="pb-4">
-            <span>3/12/2021</span>
-          </td>
-        </tr>
-        <tr className={s.sale}>
-          <td className="pb-4">
-            <span>Hugo Pumpido</span>
-          </td>
-          <td className="pb-4">
-            <span> Guantes </span>
-          </td>
-          <td className="pb-4">
-            <span> $2500</span>
-          </td>
-          <td className="pb-4">
-            <span>3/12/2021</span>
-          </td>
-        </tr>
-        <tr className={s.sale}>
-          <td className="pb-4">
-            <span>Hugo Pumpido</span>
-          </td>
-          <td className="pb-4">
-            <span> Guantes </span>
-          </td>
-          <td className="pb-4">
-            <span> $2500</span>
-          </td>
-          <td className="pb-4">
-            <span>3/12/2021</span>
-          </td>
-        </tr>
-        <tr className={s.sale}>
-          <td className="pb-4">
-            <span>Hugo Pumpido</span>
-          </td>
-          <td className="pb-4">
-            <span> Guantes </span>
-          </td>
-          <td className="pb-4">
-            <span> $2500</span>
-          </td>
-          <td className="pb-4">
-            <span>3/12/2021</span>
-          </td>
-        </tr>
+        </>
+       )
+    })
+    }
       </table>
     </div>
   );

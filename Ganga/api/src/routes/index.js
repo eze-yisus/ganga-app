@@ -13,10 +13,7 @@ const localLogin = require("./localLoginRouting")
 const sessionActive  = require('./sessionActiveRouting');
 const cart  = require('./cartRouting.js');
 const userMessage = require("./userMessageRouting");
-const mercadoPago = require("./mercadoPagoRouting")
-const mercadoPago2 = require("./mercadoPagoRouting2")
-const failMail = require("./failMailRouting.js")
-const successMail = require("./successMailRouting.js")
+const newsletter = require('./newsletter');
 
 const router = Router();
 
@@ -35,9 +32,6 @@ router.use("/sessionActive",sessionActive)
 router.use("/localLogin",localLogin)
 router.use("/cart", cart)
 router.use("/userMessage", userMessage)
-router.use("/mercadoPago",mercadoPago)
-router.use("/mercadoPago2",mercadoPago2)
-router.use("/failMail",failMail)
-router.use("/successMail",successMail)
+router.use('/newsletter', newsletter);
 
 module.exports = router;

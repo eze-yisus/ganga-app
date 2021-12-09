@@ -16,7 +16,7 @@ export default function ShoppCart() {
 
   useEffect(() => {
     dispatch(getUserInfoGoogle());
-  }, []);
+  }, [dispatch]);
 
   const User = useSelector((state) => state.getInfoGoogle);
   const cart = User.Cart;
