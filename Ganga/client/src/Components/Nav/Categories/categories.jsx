@@ -129,14 +129,6 @@ export default function Categorias() {
             </>
         }
       </nav>
-      <div>
-        <Pagination
-          elementsPerPage={elementsPerPage}
-          allProduct={allProduct}
-          paginate={paginate} />
-      </div>
-
-      
 
       <div className={s.cards}>
         {currentProducts?.length === 0 ? (
@@ -158,7 +150,12 @@ export default function Categorias() {
           })
         )}
       </div>
-     
+      <div>
+        <Pagination
+          elementsPerPage={elementsPerPage}
+          allProduct={allProduct}
+          paginate={paginate} />
+      </div>
     </div>
   );
 }

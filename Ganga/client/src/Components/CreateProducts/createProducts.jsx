@@ -39,9 +39,9 @@ export default function CreateProducts() {
     const dispatch = useDispatch()
     const categories = useSelector((state) => state.categories)
     const getInfoGoogle = useSelector((state) => state.getInfoGoogle)
-    console.log(getInfoGoogle.id)
+   
     const subcategories = useSelector((state) => state.subcategories)
-    console.log("SOY LASOMDPOIWNDPOIN", subcategories)
+   
     const [error, setError] = useState({})
     const [loading, setLoading] = useState(false);
     const [image, setImage] = useState("");

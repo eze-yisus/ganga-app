@@ -35,7 +35,9 @@ import {
   LOGOUT,
   UPDATE_STOCK,
   POST_ORDER,
-  GET_ALL_ORDERS
+  GET_ALL_ORDERS,
+  POST_NEWSLETTER,
+  DELETE_NEWSLETTER
 } from "./const";
 
 export function getProduct() {
@@ -83,6 +85,7 @@ export function getUserInfoGoogle(payload) {
     const arr = await axios.get(`${URL}sessionActive/`, {
       withCredentials: true,
     });
+    console.log("soy el arr ", arr)
     return dispatch({
       type: GET_INFO_GOOGLE,
       payload: arr.data,
@@ -179,54 +182,28 @@ export function userMessage(payload) {
 
 export function postProducts(payload) {
   return async function (dispatch) {
-    let response = await axios.post(URL + "product/", payload);
-    return response;
-  };
+    let response = await axios.post(URL + 'product/', payload)
+    console.log("Soy respuesta de la actions", response.data)
+    return response
+  }
 }
 
 export function getSubcategory(payload) {
+  console.log(payload)
   return {
     type: GET_SUBCATEGORIES,
-    payload,
-  };
+    payload
+  }
 }
 
-export function getAllUsers() {
+export function getAllUsers(){
   return async function (dispatch) {
-    let user = await axios.get(URL + "user");
+    let user = await axios.get(URL + 'user')
     dispatch({
       type: GET_ALL_USERS,
-      payload: user.data,
-    });
-  };
-}
-
-export function deleteUser(payload) {
-  return async function (dispatch) {
-    axios
-      .delete(URL + "user?id=" + payload)
-      .then((response) => {
-        dispatch({
-          type: DELETE_USER,
-          payload: response.data,
-        });
-      })
-      .catch((error) => console.log(error));
-  };
-}
-
-export function deleteProduct(payload) {
-  return async function (dispatch) {
-    axios
-      .delete(URL + "product?id=" + payload)
-      .then((response) => {
-        dispatch({
-          type: DELETE_PRODUCT,
-          payload: response.data,
-        });
-      })
-      .catch((error) => console.log(error));
-  };
+      payload: user.data
+    })
+  }
 }
 
 export function updateUser(payload) {
@@ -264,6 +241,35 @@ export function getSubCategoryByName(payload) {
     payload
   }
 }
+
+export const postNewsletter = (payload) => { 
+  // console.log('entrando a newsletter', payload) 
+  return async function (dispatch){
+      try {
+          const res = await axios.post(`/newsletter/subscribe`, payload );
+          dispatch({
+            type: POST_NEWSLETTER,
+            payload: res.data,
+          });
+      } catch (err) {
+          console.log( err);
+      }
+  }
+};
+
+export const deleteNewsletter = (payload) => {  
+  return async function (dispatch) {
+      try {
+          const res = await axios.post(`/newsletter/unsubscribe`, payload );
+          dispatch({
+            type: DELETE_NEWSLETTER,
+            payload: res.data,
+          });
+      } catch (err) {
+          console.log( err);
+      }
+  }
+};
 
 // export function geUserInfo(id){
 //   return async (dispatch) => {

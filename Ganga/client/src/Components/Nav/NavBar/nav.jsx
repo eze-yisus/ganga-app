@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoIosCart } from "react-icons/io";
 import { ImSearch } from "react-icons/im";
 
-import { getUserInfoGoogle, getCategories } from "../../Redux/Actions/actions";
+import { getUser, getCategories } from "../../Redux/Actions/actions";
 import Logo from "../Logo/logo";
 import User from "../User/user";
 import j from "./nav.module.css";
@@ -31,7 +31,7 @@ export default function Nav() {
   window.addEventListener("scroll", scrollHandler);
 
   useEffect(() => {
-    dispatch(getUserInfoGoogle());
+    dispatch(getUser());
   }, [dispatch]);
 
   useEffect(() => {
@@ -62,7 +62,9 @@ export default function Nav() {
               <Logo />
             </div>
           </Link>
-
+          <Link to="/panel" className="pr-10">
+            <button>panel </button>{" "}
+          </Link>
 
           <div
             onClick={() => {
@@ -72,37 +74,29 @@ export default function Nav() {
           >
             <span>
               <select className="w-28" onChange={handleCat}>
-                <option > Categorias </option>
-                {categories?.map((el, i) => (
+                <option> Categorias </option>
+                {categories.map((el, i) => (
                   <option key={el.name + i}>{el.name}</option>
                 ))}
               </select>
             </span>
-
             <Link to="/catalogo" className="px-6">
               <span>Catalogo</span>
             </Link>
-
-            <Link to="/" className="px-6">
-              <span>Nosotros</span>
-            </Link>
-
-            <input 
-            // className="px-4"
+            <input
+              // className="px-4"
               type="text"
               placeholder="Busca tu producto"
               onChange={handleInput}
-              className="bg-gray-100 pt-3 pb-1 ml-10 h-7 border-gray-500"
-              // border-l-2 border-t-2 border-b-2"
+              className="bg-gray-100 pt-2 pb-1 ml-10 h-8 border-gray-500 border-l-2 border-t-2 border-b-2"
             />
             <button
               type="submit"
               onClick={handleSubmit}
-             // className=" px-1  h-7 bg-gray-100 mr-4 mb-2 border-gray-500 border-r-2 border-t-2 border-b-2"
+              className=" px-1  h-8 bg-gray-100 mr-4 mb-2 border-gray-500 border-r-2 border-t-2 border-b-2"
             >
               <ImSearch />
             </button>
-
             <Link to="/shopCart" className="pl-10 pr-10">
               <button>
                 <IoIosCart />

@@ -30,6 +30,8 @@ import {
   DELETE_PRODUCT,
   LOGOUT,
   GET_ALL_ORDERS,
+  POST_NEWSLETTER,
+  DELETE_NEWSLETTER,
 } from "../Actions/const";
 
 const initialState = {
@@ -49,7 +51,6 @@ const initialState = {
   addProduct: [],
   decreseProduct: [],
   clearCart: [],
-  
 };
 
 function rootReducer(state = initialState, { type, payload, price1, price2 }) {
@@ -57,8 +58,8 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
     case GET_PRODUCT: {
       return {
         ...state,
-        allProducts2: payload,
         product: payload,
+        allProducts2: payload,
       };
     }
     case GET_PRODUCT_BY_NAME: {
@@ -195,14 +196,11 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
         ...state,
         decreseProduct: payload,
       };
-
-    case CLEAR_CART:
+    case POST_NEWSLETTER:
       return {
         ...state,
-        clearCart: payload,
       };
-
-    case DELETE_ITEM:
+    case DELETE_NEWSLETTER:
       return {
         ...state,
       };
@@ -249,6 +247,7 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
         ...state,
         orders: payload
       }
+
     default: {
       return state;
     }
