@@ -2,11 +2,11 @@ import React from 'react'
 import s from './cardUsers.module.css';
 
 
-export default function CardUser({name, lastname, mail, address, birthdate} ) {
+export default function CardUser({name, surname, mail, address, birthdate} ) {
     return (
         <div className={s.card}>
             <div>
-                <h1>{name} {lastname}</h1>
+                <h1>{name} {surname}</h1>
             </div>
             <div>
                 <h1>{mail}</h1>

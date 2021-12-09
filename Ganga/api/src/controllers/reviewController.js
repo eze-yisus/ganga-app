@@ -72,7 +72,7 @@ async function allReviews(req, res) {
     {
       model: User,
       attributes: ['name',
-        'lastname',
+        'surname',
         'mail',
         'address',
         'image',

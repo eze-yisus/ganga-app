@@ -33,7 +33,7 @@ const allCart = async (req, res) => {
         model: User,
         attributes: [
           'name',
-          'lastname',
+          'surname',
           'mail',
           'address',
           'image',

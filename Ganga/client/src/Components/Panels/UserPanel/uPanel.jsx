@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Nav from "../../Nav/NavBar/nav";
 import UserSidebar from "./uSidebar";
+import InfoUser from "../UserPanel/infoUser";
 import s from "./user.module.css";
 
 export default function UserPanel() {
@@ -13,7 +14,10 @@ export default function UserPanel() {
       {!productos ? (
         <div className={s.container}>
           <UserSidebar productos={productos} verProductos={verProductos} />
-          <div className={s.body}></div>
+          <div className={s.body}>
+          <InfoUser/>
+          </div>
+          
         </div>
       ) : (
         <div className={s.container}>

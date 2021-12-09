@@ -1,23 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu } from "@headlessui/react";
-
 import { useDispatch } from "react-redux";
+import {logout} from "../../Redux/Actions/actions"
 import Avatar from "@mui/material/Avatar";
 
 export default function User() {
   const dispatch = useDispatch();
-  console.log(dispatch);
+  const navigate = useNavigate();
 
   function handleLogout(e) {
     e.preventDefault();
-    // dispatch(logout());
+    dispatch(logout());
     // history.push("/");
+    navigate("/");
+    window.location.reload()
   }
 
   return (
     <Menu>
       <Menu.Button>
-        <Avatar src="" />
+        <Avatar  src="" />
       </Menu.Button>
 
       <Menu.Items className="origin-top-right absolute right-0 shadow-lg ring-4 ring-white  ring-opacity-20 mr-4 mt-2 p-2 bg-white">
@@ -26,7 +29,7 @@ export default function User() {
             {({ active }) => (
               <div>
                 <a
-                  href="/"
+                  href="/panel"
                   className={`${active ? "opacity-100 " : "opacity-60"}`}
                 >
                   Mis Datos

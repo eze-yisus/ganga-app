@@ -11,19 +11,30 @@ import { ImSearch } from "react-icons/im";
 import { IoIosCart } from "react-icons/io";
 import { GrClose } from "react-icons/gr";
 import User from '../User/user'
+import Pagination from '../../Home/Pagination/pagination'
 
 export default function Catalogo() {
   const dispatch = useDispatch();
   const allProduct = useSelector((state) => state.product);
   const userGoogle = useSelector((state) => state.getInfoGoogle);
+
   const [, setOrden] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
   const [name, setName] = useState(" ")
+  const [currentPage, setCurrentPage] = useState(1);
+  const [elementsPerPage, setElementsPerPage] = useState(12)
+  const indexOfLastProducts = currentPage * elementsPerPage;
+  const indexOfFirstProducts = indexOfLastProducts - elementsPerPage;
+  const currentProducts =allProduct?.slice(indexOfFirstProducts, indexOfLastProducts);
  
-  useEffect(() => {
-    dispatch(getProduct());
-  }, [dispatch]);
+  const paginate = (pageNumbers) => {
+    setCurrentPage(pageNumbers)
+  }
+
+  // useEffect(() => {
+  //   dispatch(getProduct());
+  // }, [dispatch]);
 
   useEffect(() => {
     dispatch(getUser())
@@ -36,12 +47,14 @@ export default function Catalogo() {
   function handleClick(e) {
     e.preventDefault();
     dispatch(getProduct());
+    setCurrentPage(1);
   }
  
 
   function handleOrder(e) {
     e.preventDefault();
     dispatch(orderByPrice(e.target.value));
+    setCurrentPage(1);
     setOrden(`Ordenado ${e.target.value}`);
   }
 
@@ -58,14 +71,14 @@ export default function Catalogo() {
     }
   }
 
-  function clearInput() {
-    setFilteredData([]);
-    setWordEntered("")
-  }
   function handleInput(e) {
     setName(e.target.value);
     setWordEntered(e.target.value);
     setFilteredData([])
+  }
+  function clearInput() {
+    setFilteredData([]);
+    setWordEntered("")
   }
 
 
@@ -130,7 +143,7 @@ export default function Catalogo() {
 
           </div>
         )}
-        <Link to="/carrito" className="pl-6 pr-10">
+        <Link to="/shopCart" className="pl-6 pr-10">
           <button>
             <IoIosCart />
           </button>
@@ -149,16 +162,16 @@ export default function Catalogo() {
             </>
         }
       </nav>
-
+      
       <div className={s.nav}>
 
         <div className={s.cards}>
-          {allProduct?.length === 0 ? (
+          {currentProducts?.length === 0 ? (
             <div className={s.Cargando}>
               <h1>Cargando</h1>
             </div>
           ) : (
-            allProduct.map((el, i) => {
+            currentProducts.map((el, i) => {
               return (
                 <div key={"card" + i}>
                   <Card
@@ -172,6 +185,12 @@ export default function Catalogo() {
             })
           )}
         </div>
+      </div>
+      <div>
+        <Pagination
+          elementsPerPage={elementsPerPage}
+          allProduct={allProduct}
+          paginate={paginate} />
       </div>
     </div>
   );

@@ -1,69 +1,88 @@
 import React, { useState } from "react";
 import Nav from "../../Nav/NavBar/nav";
 import VendedorSidebar from "./vSidebar";
-import InfoUser from "./infoUser";
-import s from "./vPanel.module.css";
+import s from "./vendor.module.css";
+import InfoUser from "../UserPanel/infoUser";
 
 export default function VendorPanel() {
   const [datos] = useState(false);
   const [productos, verProductos] = useState(false);
-  const [vendedores, verVendedores] = useState(false);
+  const [ventas, verVentas] = useState(false);
+  const [compras, verCompras] = useState(false)
 
   return (
     <div className="bg-gray-100">
       <Nav />
-      {!vendedores ? (
+      {!ventas ? (
         <div>
           {!productos ? (
             <div>
-              {!datos ? (
+              {!compras ? (
                 <div className={s.container}>
                   <div>
                     <VendedorSidebar
-                      datos={datos}
                       productos={productos}
                       verProductos={verProductos}
-                      vendedores={vendedores}
-                      verVendedores={verVendedores}
+                      ventas={ventas}
+                      verVentas={verVentas}
+                      compras={compras}
+                      verCompras={verCompras}
                     />
                   </div>
                   <div className={s.body}>
-                    <h4 className="text-3xl text-center font-light font-serif p-5">
-                      Info
-                    </h4>
-                    <InfoUser />
-                    <div className={s.newInfo}></div>
+                    <InfoUser/>
                   </div>
                 </div>
               ) : (
-                <div className={s.containerUsuarios}>
+                <div className={s.container}>
                   <div>
-                    <h1>Holaaa</h1>
+                  <VendedorSidebar
+                      productos={productos}
+                      verProductos={verProductos}
+                      ventas={ventas}
+                      verVentas={verVentas}
+                      compras={compras}
+                      verCompras={verCompras}
+                    />
                   </div>
                   <div className={s.usuariosBody}>
-                    <p>HOLAAA</p>
+                    tus compras
                   </div>
                 </div>
               )}
             </div>
           ) : (
-            <div className={s.containerProductos}>
-              <div>
-                <p>Hola</p>
-              </div>
-              <div className={s.productosBody}>
-                <p>HOLA</p>
-              </div>
-            </div>
+            <div className={s.container}>
+                  <div>
+                  <VendedorSidebar
+                      productos={productos}
+                      verProductos={verProductos}
+                      ventas={ventas}
+                      verVentas={verVentas}
+                      compras={compras}
+                      verCompras={verCompras}
+                    />
+                  </div>
+                  <div className={s.usuariosBody}>
+                    <h1 className="text-center pt-80">tus productos</h1>
+                  </div>
+                </div>
           )}
         </div>
       ) : (
-        <div className={s.containerVendedores}>
+        <div className={s.container}>
           <div>
-            <h2>knfelinfpi</h2>
+          <VendedorSidebar
+                      productos={productos}
+                      verProductos={verProductos}
+                      ventas={ventas}
+                      verVentas={verVentas}
+                      compras={compras}
+                      verCompras={verCompras}
+                    />
           </div>
           <div className={s.vendedoresBody}>
-            <h1>fenbkufbd</h1>
+          <h1 className="text-center pt-80">tus ventas</h1>
           </div>
         </div>
       )}

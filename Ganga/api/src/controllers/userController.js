@@ -1,4 +1,4 @@
-const { User, Review } = require("../db.js");
+const { User, Review, Product } = require("../db.js");
 const { Op } = require('sequelize');
 
 async function postUser(req, res) {
@@ -8,7 +8,7 @@ async function postUser(req, res) {
     */
 
   const { name, surname, mail, address, image, seller, birthdate, password, cellphone, country, province, cp } = req.body;
-  // Formato para enviar cumpleaños: 1991-11-28     // modificar en postman surname por lastname y agregar cellphone, country, province, cp
+  // Formato para enviar cumpleaños: 1991-11-28     // modificar en postman surname y agregar cellphone, country, province, cp
 
   const check = await User.findOne({
     where: {
@@ -126,10 +126,105 @@ const userInfo = async (req, res) => {
   }
 }
 
+async function addCart(req, res) {
+
+  let Cart;
+  try {
+    const { id, item, que, cant } = req.body;
+
+    let result = await User.findOne({ where: { id } });
+
+    if (result) {
+      Cart = result.Cart;
+    }
+    if (Cart.length > 0) {
+      const result = Cart.find((el) => el.id === item.id);
+      if (!result) {
+        const producto = await Product.findOne({ where: { id: item.id } });
+        Cart.push({ ...producto.dataValues, quantity: Number(cant) }); // quantiti debe ir en producto para las validaciones?
+      } else {
+        Cart = Cart.map((el) => {
+          if (el.id === item.id) {
+            if (que === "+") {
+              return {
+                ...el,
+                quantity: Number(el.quantity) + Number(cant), // aca podriamos refactorizar solamente aumentando en 1
+              };
+            } else {
+              return {
+                ...el,
+                quantity: Number(el.quantity) - Number(cant), // aca podriamos refactorizar solamente restando en 1
+              };
+            }
+          } else {
+            return el;
+          }
+        });
+      }
+      Cart = Cart.filter((el) => el.quantity > 0);
+
+      await User.update({ Cart }, { where: { id } });
+      const user = await User.findOne({ where: { id } });
+      res.json([...user.Cart]);
+    } else {
+      const producto = await Product.findOne({ where: { id: item.id } });
+      Cart.push({ ...producto.dataValues, quantity: Number(cant) });
+
+      await User.update({ Cart }, { where: { id } });
+      const user = await User.findOne({ where: { id } });
+      res.json([...user.Cart]);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+const clearCart = async (req, res) => {
+  const { id } = req.query;
+
+  try{
+    const userWithCart = await User.findByPk(id);
+
+    userWithCart ? res.send(await userWithCart.update({ Cart: [] })) : res.json('No se ha podido limpiar el carrito')
+  }
+  catch (error) {
+    console.log(error)
+  }
+}
+
+const deleteProduct = async (req, res) => {
+  const { id, item } = req.body;
+
+  let Cart;
+  try{
+
+    const user = await User.findByPk(id)
+
+    // const product = await Product.findOne({
+    //   where:{id: item}
+    // })
+  
+    
+    user ? (Cart = user.Cart) : console.log('No existe user con ese id')
+    
+    Cart ? (Cart = Cart.filter((product) => product.id !== item)) : console.log('No existe ese carrito')
+
+    console.log('soy el carrito del usuario: ', Cart)
+   
+    res.send(await user.update({ Cart: Cart} ))
+  }
+  catch(error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   postUser,
   putUser,
   deleteUser,
   allUsers,
-  userInfo
+  userInfo,
+  addCart,
+  clearCart,
+  deleteProduct
 };

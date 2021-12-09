@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginForm from "./loginForm";
 import s from "./login.module.css";
 
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getUserInfoGoogle } from "../../../Redux/Actions/actions";
@@ -31,9 +30,9 @@ export default function Login() {
 
   return (
     <div>
-     <img className={s.fondo} src={fondo} alt="" />
+      <img className={s.fondo} src={fondo} alt="" />
       <div className={s.left}>
-       <img className={s.foto} src={foto} alt="" />
+        <img className={s.foto} src={foto} alt="" />
       </div>
       <div className={s.right}>
         <LoginForm />

@@ -27,7 +27,7 @@ const infoCategory = [
   },
   {
     name: "Deportes y fitness",
-    subcategories: ["Artes marciales y boxeo", "Equitacion y polo", "Juegos de salon", "Patin y Skateboard", "Suplementos y shakers", "Surf y bodyboard", "Esgrima", "Bádminton", "Kitesurf", "Básquet", "Esqui y snowboard", "Monopatines y scooters", "Pilates y yoga", "Buceo", "Fitness y musculación", "Pulsómetros y cronómetros", "Tenis, padel y squash", "Fútbol", "Montañismo y trekking", "Ropa deportiva", "Tiro deportivo", "Camping, caza y pesca", "Futbol americano", "Natación", "Voley", "Canoas, kayaks e inflables", "Golf", "Paintball", "Wakeboard y esqui acuatico", "Rugby", "Ciclismo", "Handball", "Hockey", "Parapente", "Slackluine", "Windsurf", "Softball y beisbol", "Otros"]
+    subcategories: ["Juegos de salon", "Patin y Skateboard", "Suplementos y shakers", "Surf y bodyboard", "Esgrima", "Bádminton", "Kitesurf", "Básquet", "Esqui y snowboard", "Monopatines y scooters", "Pilates y yoga", "Buceo", "Fitness y musculación", "Pulsómetros y cronómetros", "Tenis, padel y squash", "Fútbol", "Montañismo y trekking", "Ropa deportiva", "Tiro deportivo", "Camping, caza y pesca", "Futbol americano", "Natación", "Voley", "Canoas, kayaks e inflables", "Golf", "Paintball", "Wakeboard y esqui acuatico", "Rugby", "Ciclismo", "Handball", "Hockey", "Parapente", "Slackluine", "Windsurf", "Softball y beisbol", "Otros"]
   },
   {
     name: "Accesorios para vehiculos",

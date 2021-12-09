@@ -2,10 +2,16 @@
     display: flex;
 }
 
-.sidebar {
-    flex: 1;
-}
 
 .body {
     flex: 4;
 }
+
+.sidebar {
+    flex: 1;
+    background: rgb(177, 177, 177);
+    height: 1210px;
+    border-width: 4px;
+    border-color: rgb(165, 165, 165);
+}
+

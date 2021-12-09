@@ -10,7 +10,7 @@ import BrandNewUsers from "./NewInfo/brandNewUsers";
 import NewSales from "./NewInfo/newSales";
 import ProductList from "./productList";
 import VendorList from "./vendorList";
-import { getAllUsers } from "../../Redux/Actions/actions";
+import { getAllUsers, getProduct } from "../../Redux/Actions/actions";
 import s from "./admin.module.css";
 
 export default function AdminPanel() {
@@ -19,13 +19,20 @@ export default function AdminPanel() {
   const [usuarios, verUsuarios] = useState(false);
   const [productos, verProductos] = useState(false);
   const [vendedores, verVendedores] = useState(false);
+  const products = useSelector((state) => state.product);
+
+  console.log("allUsers", allUsers)
+
+  useEffect(() => {
+    dispatch(getProduct());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
 
-  const vendors = allUsers.filter((u) => u.seller === true);
-  const users = allUsers.filter((u) => u.seller === false);
+  const vendors = allUsers?.filter((u) => u.seller === true);
+  const users = allUsers?.filter((u) => u.seller === false);
 
   return (
     <div className="bg-gray-100">
@@ -57,7 +64,7 @@ export default function AdminPanel() {
                   </div>
                 </div>
               ) : (
-                <div className={s.containerUsuarios}>
+                <div  className={s.container}>
                   <AdminSidebar
                     usuarios={usuarios}
                     verUsuarios={verUsuarios}
@@ -66,14 +73,14 @@ export default function AdminPanel() {
                     vendedores={vendedores}
                     verVendedores={verVendedores}
                   />
-                  <div className={s.usuariosBody}>
+                   <div className={s.body}>
                     <UserList users={users} />
                   </div>
                 </div>
               )}
             </div>
           ) : (
-            <div className={s.containerProductos}>
+            <div  className={s.container}>
               <AdminSidebar
                 usuarios={usuarios}
                 verUsuarios={verUsuarios}
@@ -82,14 +89,14 @@ export default function AdminPanel() {
                 vendedores={vendedores}
                 verVendedores={verVendedores}
               />
-              <div className={s.productosBody}>
-                <ProductList />
+              <div className={s.body}>
+                <ProductList  products={products}/>
               </div>
             </div>
           )}
         </div>
       ) : (
-        <div className={s.containerVendedores}>
+        <div  className={s.container}>
           <AdminSidebar
             usuarios={usuarios}
             verUsuarios={verUsuarios}
@@ -98,7 +105,7 @@ export default function AdminPanel() {
             vendedores={vendedores}
             verVendedores={verVendedores}
           />
-          <div className={s.vendedoresBody}>
+           <div className={s.body}>
             <VendorList vendors={vendors} />
           </div>
         </div>

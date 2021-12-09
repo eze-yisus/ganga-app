@@ -44,8 +44,6 @@ const infoSubCategory = [
   { name: "Pintureria" },
   { name: "Pisos y Revestimientos" },
   { name: "Plomeria" },
-  { name: "Artes marciales y boxeo" },
-  { name: "Equitacion y polo" },
   { name: "Juegos de salon" },
   { name: "Patin y Skateboard" },
   { name: "Suplementos y shakers" },

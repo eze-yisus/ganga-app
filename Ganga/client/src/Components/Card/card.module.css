@@ -3,8 +3,8 @@ margin: 0;
 }
 
 .img{
-height: 350px;
-width: 300x;
+height: 220px;
+width: 250x;
 border-radius: 20px;
 display: flex;
 justify-content:center;
@@ -13,8 +13,8 @@ margin-top: -32px;
 }
 
 .container{
-    height: 550px;
-    width: 360px;
+    height: 450px;
+    width: 300px;
     background-color: white;
     border-radius: 20px;
     margin: 20px;

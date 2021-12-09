@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 
 export default function FilterPrice() {
     const dispatch = useDispatch();
+    const [currentPage, setCurrentPage] = useState(1);
     const [price1, setPrice1]= useState("")
     const [price2, setPrice2]= useState("")
 
@@ -23,6 +24,7 @@ export default function FilterPrice() {
         dispatch(filterPriceByRange(price1, price2));
         setPrice1(" ")
         setPrice2(" ")
+        setCurrentPage(1);
     }
     return (
         <div>

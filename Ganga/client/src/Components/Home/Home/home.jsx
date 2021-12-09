@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch/*, useSelector */} from "react-redux";
 import { getProduct } from "../../Redux/Actions/actions";
 import Nav from "../../Nav/NavBar/nav";
 import Carousel from "./Carousel/carousel";
@@ -13,8 +13,7 @@ import s from "./home.module.css";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const allProduct = useSelector((state) => state.product);
-  console.log(allProduct);
+  // const allProduct = useSelector((state) => state.product);
 
   const [nav, setNav] = useState(false);
   useEffect(() => {
