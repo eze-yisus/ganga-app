@@ -2,20 +2,24 @@ const { Order, User } = require("../db.js");
 
 const postOrder = async (req, res) => {
   //Atributos del body para pasar en postman
-  const { idUser, state, amount, info, cellphone, mail, price, address } = req.body; // agregar a postman amount, info, cellphone, mail, price, address
+  const { info, userInfo,
+    productInfo, total } = req.body; // agregar a postman amount, info, cellphone, mail, price, address
+    // agregar total al postman
 
   try {
-    const order = {state, amount, info, cellphone, mail, price, address}
+    const order = {info, userInfo,
+      productInfo, total}
     const newOrder = await Order.create(order);
+    const userInfoDb = await User.findByPk(userInfo);
 
-    newOrder ? res.send(await newOrder.setUser(idUser)) : console.log('No se ha podido relacionar la orden con el usuario')
 
-    newOrder ? res.json(newOrder) : res.json("No se ha podido hacer la orden.");
+    newOrder ? await newOrder.setUser(userInfo) : console.log('No se ha podido relacionar la orden con el usuario')
+
+    newOrder ? res.json({ userInfo: userInfoDb,
+    productInfo: productInfo }) : res.json("No se ha podido hacer la orden.");
   } catch (error) {
-    const search = error.message;
-    console.log(search);
+    console.log(error);
     //en caso de que rompa, busca en stackoverflow
-    windows.open(`https://stackoverflow.com/search?q=${search}`, "_blank");
   }
 };
 
@@ -42,10 +46,12 @@ const allOrders = async (req, res) => {
 };
 
 const putOrder = async (req, res) => {
-    const {id, state, amount, info, cellphone, mail, price, address} = req.body; // agregar a postman amount, info, cellphone, mail, price, address
+    const {id, info, userInfo,
+      productInfo, total} = req.body; // agregar a postman amount, info, cellphone, mail, price, address
 
     try {
-        const infoUpdateOrder = {state, amount, info, cellphone, mail, price, address}
+        const infoUpdateOrder = {info, userInfo,
+          productInfo, total}
         const orderById = await Order.findByPk(id)
         orderById ? res.send(await orderById.update(infoUpdateOrder)) : res.json('No se ha podido modificar su orden')
 
@@ -74,9 +80,24 @@ const deleteOrder = async (req, res) => {
     }
 }
 
+const getOrderWithUserId = async (req, res) => {
+  const { id } = req.query;
+
+  try{
+    const allOrder = await Order.findAll();
+    const orderByUser = allOrder.filter((order) => order.userInfo === id);
+
+    orderByUser? res.send(orderByUser) : res.send(`No existen ordenes para el usuario con el id: ${id}`)
+  }
+  catch(error) {
+    console.log(error)
+  }
+} 
+
 module.exports = {
     postOrder,
     allOrders,
     putOrder,
-    deleteOrder
+    deleteOrder,
+    getOrderWithUserId
 }

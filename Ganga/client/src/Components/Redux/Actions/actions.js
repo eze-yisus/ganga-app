@@ -33,6 +33,8 @@ import {
   DELETE_USER,
   DELETE_PRODUCT,
   LOGOUT,
+  UPDATE_STOCK,
+  POST_ORDER,
   PRODUCTS_BY_NAME
 } from "./const";
 
@@ -415,4 +417,36 @@ export function logout() {
       payload: response.data,
     });
   };
+}
+
+// actualizar stock de los productos despues de la compra
+export function updateStock(payload) {
+  return async function (dispatch) {
+  await axios
+    .post(`${URL}product/update`, payload)
+    .then((response) => {
+
+      dispatch({
+        type: UPDATE_STOCK,
+        payload: response.data,
+      });
+    })
+    .catch((error) => console.log(error));
+};
+}
+
+// postear una orden de compra 
+export function postOrder(payload) {
+  return async function (dispatch) {
+  await axios
+    .post(`${URL}order`, payload)
+    .then((response) => {
+
+      dispatch({
+        type: POST_ORDER,
+        payload: response.data,
+      });
+    })
+    .catch((error) => console.log(error));
+};
 }

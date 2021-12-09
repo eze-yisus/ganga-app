@@ -36,7 +36,7 @@ async function postProduct(req, res) {
       price,
       stock,
       image,
-      owner
+      owner,
     };
 
     try {
@@ -45,6 +45,8 @@ async function postProduct(req, res) {
       newProduct
         ? await newProduct.setUser(idUser)
         : console.log("No se ha podido relacionar el producto con el usuario");
+
+      newProduct ? await newProduct.update({ owner: idUser }) : console.log('No se ha podido actualizar el owner');
 
       newProduct
         ? await newProduct.setCategory(idCategory)
@@ -69,8 +71,8 @@ async function postProduct(req, res) {
 }
 
 async function putProduct(req, res) {
-  const { 
-    id, 
+  const {
+    id,
     name,
     brand,
     description,
@@ -78,18 +80,18 @@ async function putProduct(req, res) {
     stock,
     image,
     owner,
-     idCategory } =
-    req.body; // modificar en postman brand por mark y agregar owner
+    idCategory,
+  } = req.body; // modificar en postman brand por mark y agregar owner
 
   try {
     const infoUpdateProduct = {
       name,
-    brand,
-    description,
-    price,
-    stock,
-    image,
-    owner
+      brand,
+      description,
+      price,
+      stock,
+      image,
+      owner,
     };
 
     const productById = await Product.findByPk(id);
@@ -104,7 +106,6 @@ async function putProduct(req, res) {
 
 async function deleteProduct(req, res) {
   const { id } = req.query;
-  console.log("soy el id de deleteProduct(controller): ", id);
 
   try {
     const deleteProduct = await Product.findByPk(id);
@@ -128,9 +129,9 @@ async function allProducts(req, res) {
       productByName.length !== 0
         ? res.json(productByName)
         : res.send("No se ha encontrado un producto con ese nombre");
-      } catch (error) {
-        console.log(error);
-      }
+    } catch (error) {
+      console.log(error);
+    }
   } else if (id) {
     try {
       const productId = await Product.findByPk(id);
@@ -144,27 +145,66 @@ async function allProducts(req, res) {
     res.send(allDbProducts);
   }
 }
-const productInfo = async(req, res) => {
+const productInfo = async (req, res) => {
   const { id } = req.query;
 
-  try{
+  try {
     const dbProduct = await Product.findByPk(id);
-    console.log('soy el dbProduct: ', dbProduct)
-    const productReview = await Review.findAll({  // seria algo parecido para el review del usuario
-      where:{productId: id}
-    })
-    dbProduct ? res.send({product: dbProduct,
-    review: productReview}) : res.send(`No se ha encontrado el producto con el id: ${id}`)
+    const productReview = await Review.findAll({
+      // seria algo parecido para el review del usuario
+      where: { productId: id },
+    });
+    const owner = dbProduct.owner;
+    const seller = await User.findOne({where: { id: owner }})
+
+    dbProduct
+      ? res.send({ product: dbProduct, reviews: productReview, seller: seller })
+      : res.send(`No se ha encontrado el producto con el id: ${id}`);
+  } catch (error) {
+    console.log(error);
   }
-  catch(error) {
-    console.log(error)
+};
+
+// update product after sales
+
+const updateProduct = async (req, res) => {
+  const productos = req.body;
+
+  productos.map(async (el) => {
+    try {
+      const product = await Product.findByPk(el.id);
+      const updateQuantity = product.stock - el.cant;
+      await product.update({ stock: updateQuantity });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+  res.send("producto descontado del carrito");
+};
+
+
+// update product after single sale
+
+const updateProduct2 = async (req, res) => {
+  const { id, cant } = req.body;
+
+  try {
+    const product = await Product.findByPk(id);
+    const updateQuantity = product.stock - cant;
+    product
+      ? res.send(await product.update({ stock: updateQuantity }))
+      : res.json("No se ha podido limpiar el carrito");
+  } catch (error) {
+    console.log(error);
   }
-}
+};
 
 module.exports = {
-    postProduct,
-    putProduct,
-    deleteProduct,
-    allProducts,
-    productInfo
+  postProduct,
+  putProduct,
+  deleteProduct,
+  allProducts,
+  productInfo,
+  updateProduct,
+  updateProduct2,
 };

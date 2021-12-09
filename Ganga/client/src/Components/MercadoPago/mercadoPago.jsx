@@ -14,7 +14,7 @@ export function MercadoPago({cart}) {
     }
 })
 
-console.log(compras);
+// console.log(compras);
 
   useEffect(() => {
     if (mp.length >= 10) {

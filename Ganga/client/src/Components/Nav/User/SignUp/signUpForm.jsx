@@ -57,16 +57,9 @@ export default function SignUpForm() {
     dispatch(signUp(input));
     setTimeout(() => {
       dispatch(localLogin(input));
-    }, 1000);
-    // setInput({
-    //   name: "",
-    //   surname: "",
-    //   mail: "",
-    //   password: "",
-    //   cellphone: "",
-    //   address: "",
-    // });
-    navigate("/");
+      navigate("/");
+    }, 200);
+    
   }
 
   return (

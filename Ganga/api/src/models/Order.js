@@ -12,34 +12,22 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
       },
 
-      amount: {
-        type: DataTypes.INTEGER, // modificar en controlador
+      userInfo: { // cellphone, mail, price, address
+        type: DataTypes.JSON
       },
 
-      state: {
-        type: DataTypes.STRING,
+      productInfo: { // amount, price
+        type: DataTypes.ARRAY(DataTypes.JSON)
       },
 
-      info: { // modificar en controlador
+      info: { // state
         type: DataTypes.TEXT
       },
 
-      cellphone: {
-        type: DataTypes.INTEGER, // modificar en controlador
-      },
-
-      mail: {
-        type: DataTypes.STRING, // modificar en controlador
-      },
-
-      price: {
-        type: DataTypes.INTEGER, // modificar en controlador
-      },
-
-      address: {
-        type: DataTypes.STRING, // modificar en controlador
-      },
+      total: {
+        type: DataTypes.FLOAT
+      }
     },
-    { timestamps: false, paranoid: true }
+    { timestamps: true, paranoid: true }
   );
 };
