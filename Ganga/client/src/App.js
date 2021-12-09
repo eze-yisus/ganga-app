@@ -12,6 +12,7 @@ import ShopCart from "./Components/ShoppCart/shoppCart.jsx";
 import AdminPanel from "./Components/Panels/AdminPanel/aPanel";
 import SubAdminForm from "./Components/Panels/AdminPanel/subAdminForm";
 import AdminPanelV from "./Components/Panels/VendorPanel/vPanel";
+import Newsletter from './Components/Home/NewsLetter/newsletter';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/panel" element={<AdminPanel />} />
         <Route path="/registrar" element={<SubAdminForm />} />
         <Route exact path="/panelV" element={<AdminPanelV />} />
+        <Route path="/newsletter" component={Newsletter} />
       </Routes>
     </BrowserRouter>
   );

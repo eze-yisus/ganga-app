@@ -12,7 +12,9 @@ import {
   FILTER_BY_SEARCH,
   USER_MESSAGE,
   GET_SUBCATEGORIES,
-  GET_ALL_USERS
+  GET_ALL_USERS,
+  POST_NEWSLETTER,
+  DELETE_NEWSLETTER,
 } from "../Actions/const";
 
 const initialState = {
@@ -121,16 +123,24 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
         ...state,
       };
     case GET_SUBCATEGORIES:
-      let subcatego = state.categories.filter((el) => el.id === payload)
+      let subcatego = state.categories.filter((el) => el.id === payload);
       return {
         ...state,
-        subcategories: subcatego
-      }
+        subcategories: subcatego,
+      };
     case GET_ALL_USERS:
       return {
         ...state,
-        allUsers: payload
-      }
+        allUsers: payload,
+      };
+    case POST_NEWSLETTER:
+      return {
+        ...state,
+      };
+    case DELETE_NEWSLETTER:
+      return {
+        ...state,
+      };
     default: {
       return state;
     }

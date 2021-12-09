@@ -1,5 +1,6 @@
 .bg {
-  background-image: url("https://st3.depositphotos.com/30440304/34113/i/450/depositphotos_341136250-stock-photo-geometric-multicolored-intersecting-lines-graphic.jpg");
+  /* background-image: url("https://st3.depositphotos.com/30440304/34113/i/450/depositphotos_341136250-stock-photo-geometric-multicolored-intersecting-lines-graphic.jpg"); */
+  background-color: rgb(183, 226, 252);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -9,10 +10,12 @@
 }
 
 .HomeContainer {
-  width: 90vw;
-  max-height: 600px;
+  width: 100vw;
+  max-height: 580px;
   margin: 100px 60px;
   display: flex;
+  position: absolute;
+  right: -60px;
   flex-direction: row;
   justify-content: space-around;
   overflow: hidden;
@@ -63,7 +66,7 @@
     height: 100%;
     margin-right: 14px;
     float: left;
-    background-image: url("../../Resources/collage1.png");
+    background-image: url("../../Resources/collage1.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -116,7 +119,7 @@
     margin-right: 10px;
     margin-bottom: 10px;
     float: left;
-    background-image: url("../../Resources/collage2.png");
+    background-image: url("../../Resources/collage2.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -166,7 +169,7 @@
     height: 49%;
     margin-right: 10px;
     float: left;
-    background-image: url("../../Resources/collage3.png");
+    background-image: url("../../Resources/collage3.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -216,7 +219,7 @@
     height: 60%;
     float: right;
     margin-bottom: 10px;
-    background-image: url("../../Resources/collage4.png");
+    background-image: url("../../Resources/collage4.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -274,7 +277,7 @@
     height: 100%;
     margin-right: 14px;
     float: left;
-    background-image: url("../../Resources/collage1.png");
+    background-image: url("../../Resources/collage1.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -325,7 +328,7 @@
     margin-right: 10px;
     margin-bottom: 10px;
     float: left;
-    background-image: url("../../Resources/collage2.png");
+    background-image: url("../../Resources/collage2.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -375,7 +378,7 @@
     height: 49%;
     margin-right: 10px;
     float: left;
-    background-image: url("../../Resources/collage3.png");
+    background-image: url("../../Resources/collage3.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -425,7 +428,7 @@
     height: 100%;
     float: right;
     margin-bottom: 10px;
-    background-image: url("../../Resources/collage4.png");
+    background-image: url("../../Resources/collage4.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -483,7 +486,7 @@
     height: 100%;
     margin-right: 14px;
     float: left;
-    background-image: url("../../Resources/collage1.png");
+    background-image: url("../../Resources/collage1.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -534,7 +537,7 @@
     margin-right: 10px;
     margin-bottom: 10px;
     float: left;
-    background-image: url("../../Resources/collage2.png");
+    background-image: url("../../Resources/collage2.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -584,7 +587,7 @@
     height: 49%;
     margin-right: 10px;
     float: left;
-    background-image: url("../../Resources/collage3.png");
+    background-image: url("../../Resources/collage3.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -634,7 +637,7 @@
     height: 60%;
     float: right;
     margin-bottom: 10px;
-    background-image: url("../../Resources/collage4.png");
+    background-image: url("../../Resources/collage4.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -692,7 +695,7 @@
     height: 100%;
     margin-right: 12px;
     float: left;
-    background-image: url("../../Resources/collage1.png");
+    background-image: url("../../Resources/collage1.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -743,7 +746,7 @@
     margin-right: 10px;
     margin-bottom: 10px;
     float: left;
-    background-image: url("../../Resources/collage2.png");
+    background-image: url("../../Resources/collage2.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -793,7 +796,7 @@
     height: 49%;
     margin-right: 10px;
     float: right;
-    background-image: url("../../Resources/collage4.png");
+    background-image: url("../../Resources/collage4.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -883,7 +886,7 @@
     width: 48%;
     height: 48%;
     margin: 0 5px 5px 0;
-    background-image: url("../../Resources/collage1.png");
+    background-image: url("../../Resources/collage1.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -894,7 +897,7 @@
     width: 48%;
     height: 48%;
     margin-bottom: 5px;
-    background-image: url("../../Resources/collage2.png");
+    background-image: url("../../Resources/collage2.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -904,7 +907,7 @@
   .divTitle3 {
     width: 48%;
     height: 48%;
-    background-image: url("../../Resources/collage3.png");
+    background-image: url("../../Resources/collage3.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -915,7 +918,7 @@
     width: 48%;
     height: 48%;
     margin-right: 5px;
-    background-image: url("../../Resources/collage4.png");
+    background-image: url("../../Resources/collage4.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -1018,18 +1021,18 @@
   }
 
   .divTitle {
-    background-image: url("../../Resources/collage1.png");
+    background-image: url("../../Resources/collage1.jpg");
   }
 
   .divTitle2 {
-    background-image: url("../../Resources/collage2.png");
+    background-image: url("../../Resources/collage2.jpg");
   }
 
   .divTitle3 {
-    background-image: url("../../Resources/collage3.png");
+    background-image: url("../../Resources/collage3.jpg");
   }
 
   .divTitle4 {
-    background-image: url("../../Resources/collage4.png");
+    background-image: url("../../Resources/collage4.jpg");
   }
 }

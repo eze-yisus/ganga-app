@@ -7,6 +7,7 @@ import BestSellingBrands from "../BestSellingBrands/bestSellingBrands";
 import FooterPage from "../Footer/footer";
 import ContactForm from "../ContactForm/contactForm";
 import CollagePhotos from "../CollageProducts/collagePhotos";
+// import Newsletter from "../NewsLetter/newsletter";
 // import Map from "../ContactForm/map";
 import s from "./home.module.css";
 
@@ -45,6 +46,9 @@ export default function Home() {
         <div>
           <CollagePhotos />
         </div>
+        {/* <div>
+          <Newsletter />
+        </div> */}
         <div>
           {/* <Map /> */}
           <ContactForm />

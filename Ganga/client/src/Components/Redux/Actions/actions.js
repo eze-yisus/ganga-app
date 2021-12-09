@@ -16,7 +16,9 @@ import {
   USER_MESSAGE,
   FILTER_BY_SEARCH,
   GET_SUBCATEGORIES,
-  GET_ALL_USERS
+  GET_ALL_USERS,
+  POST_NEWSLETTER,
+  DELETE_NEWSLETTER
 } from "./const";
 
 export function getProduct() {
@@ -183,6 +185,35 @@ export function getAllUsers(){
     })
   }
 }
+
+export const postNewsletter = (payload) => { 
+  // console.log('entrando a newsletter', payload) 
+  return async function (dispatch){
+      try {
+          const res = await axios.post(`/newsletter/subscribe`, payload );
+          dispatch({
+            type: POST_NEWSLETTER,
+            payload: res.data,
+          });
+      } catch (err) {
+          console.log( err);
+      }
+  }
+};
+
+export const deleteNewsletter = (payload) => {  
+  return async function (dispatch) {
+      try {
+          const res = await axios.post(`/newsletter/unsubscribe`, payload );
+          dispatch({
+            type: DELETE_NEWSLETTER,
+            payload: res.data,
+          });
+      } catch (err) {
+          console.log( err);
+      }
+  }
+};
 
 // export function geUserInfo(id){
 //   return async (dispatch) => {

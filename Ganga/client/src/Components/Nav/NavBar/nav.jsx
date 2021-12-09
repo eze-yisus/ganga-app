@@ -62,9 +62,9 @@ export default function Nav() {
               <Logo />
             </div>
           </Link>
-
           <Link to="/panel" className="pr-10">
-            <button>panel </button>  </Link>
+            <button>panel </button>{" "}
+          </Link>
 
           <div
             onClick={() => {
@@ -74,23 +74,17 @@ export default function Nav() {
           >
             <span>
               <select className="w-28" onChange={handleCat}>
-                <option > Categorias </option>
+                <option> Categorias </option>
                 {categories.map((el, i) => (
                   <option key={el.name + i}>{el.name}</option>
                 ))}
               </select>
             </span>
-
             <Link to="/catalogo" className="px-6">
               <span>Catalogo</span>
             </Link>
-
-            <Link to="/" className="px-6">
-              <span>Nosotros</span>
-            </Link>
-
-            <input 
-            // className="px-4"
+            <input
+              // className="px-4"
               type="text"
               placeholder="Busca tu producto"
               onChange={handleInput}
@@ -103,7 +97,6 @@ export default function Nav() {
             >
               <ImSearch />
             </button>
-
             <Link to="/shopCart" className="pl-10 pr-10">
               <button>
                 <IoIosCart />

@@ -13,6 +13,7 @@ const localLogin = require("./localLoginRouting")
 const sessionActive  = require('./sessionActiveRouting');
 const cart  = require('./cartRouting.js');
 const userMessage = require("./userMessageRouting");
+const newsletter = require('./newsletter');
 
 const router = Router();
 
@@ -31,5 +32,6 @@ router.use("/sessionActive",sessionActive)
 router.use("/localLogin",localLogin)
 router.use("/cart", cart)
 router.use("/userMessage", userMessage)
+router.use('/newsletter', newsletter);
 
 module.exports = router;
