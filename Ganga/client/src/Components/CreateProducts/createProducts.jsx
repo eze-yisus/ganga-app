@@ -41,7 +41,7 @@ export default function CreateProducts() {
     const categories = useSelector((state) => state.categories);
     const getInfoGoogle = useSelector((state) => state.getInfoGoogle);
     const subcategories = useSelector((state) => state.dbSubcategories);
-    
+
     useEffect(() => {
         dispatch(getCategories());
     }, [dispatch]);
@@ -72,7 +72,7 @@ export default function CreateProducts() {
     });
 
     function handleChange(e) {
-        setInput ({
+        setInput({
             ...input,
             [e.target.name]: e.target.value
         });
@@ -228,15 +228,15 @@ export default function CreateProducts() {
                             </div>
 
                             <div>
-                                                <label > SubCategoria: </label>
-                                                <select className="text-center bg-gray-700 text-white" name="idSubcategory" onChange={handleSelect2} >
-                                                    {(
-                                                        subcategories&&subcategories.map((p, i) => (
-                                                            <option key={i} value={p.id}>{p.name}</option>
-                                                        ))
-                                                    )}
-                                                </select>
-                                            </div>
+                                <label > SubCategoria: </label>
+                                <select className="text-center bg-gray-700 text-white" name="idSubcategory" onChange={handleSelect2} >
+                                    {(
+                                        subcategories && subcategories.map((p, i) => (
+                                            <option key={i} value={p.id}>{p.name}</option>
+                                        ))
+                                    )}
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

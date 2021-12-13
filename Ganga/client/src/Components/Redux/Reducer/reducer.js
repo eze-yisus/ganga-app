@@ -113,21 +113,21 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
       let sortedProducts =
         payload === "Mayor-Menor"
           ? state.product.sort(function (a, b) {
-              if (a.price > b.price) {
-                return 1;
-              } else if (b.price > a.price) {
-                return -1;
-              }
-              return 0;
-            })
+            if (a.price > b.price) {
+              return 1;
+            } else if (b.price > a.price) {
+              return -1;
+            }
+            return 0;
+          })
           : state.product.sort(function (a, b) {
-              if (a.price > b.price) {
-                return -1;
-              } else if (a.price > b.price) {
-                return 1;
-              }
-              return 0;
-            });
+            if (a.price > b.price) {
+              return -1;
+            } else if (a.price > b.price) {
+              return 1;
+            }
+            return 0;
+          });
       return {
         ...state,
         product: payload === "All" ? state.products : sortedProducts,
@@ -171,7 +171,6 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
         allUsers: payload,
       };
     case GET_FILTER_BY_CATEGORY:
-      console.log(payload, "ljdwboubdlwnb");
       let filter = state.allProducts2.filter((el) => el.categories === payload);
       return {
         ...state,
@@ -277,42 +276,42 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
       return {
         ...state,
       };
-      
-    case ADD_REVIEW: 
-    return {
-      ...state,
-      newReview: payload
-    }
+
+    case ADD_REVIEW:
+      return {
+        ...state,
+        newReview: payload
+      }
     case PUT_PRODUCT:
       return {
         ...state,
         updateProduct: payload,
       };
-    
+
     case ALL_REVIEWS:
 
-    return {
-      ...state,
-      allReviews: payload
-    }
+      return {
+        ...state,
+        allReviews: payload
+      }
 
     case APPROVE_PRODUCT:
-    return {
-      ...state,
-      productApproved: payload
-    }
+      return {
+        ...state,
+        productApproved: payload
+      }
 
     case POST_PRODUCT:
       return {
         ...state,
         postProduct: payload
       }
-    
+
     case DB_SUBCATEGORIES:
-    return {
-      ...state,
-      dbSubcategories: payload
-    }
+      return {
+        ...state,
+        dbSubcategories: payload
+      }
 
     default: {
       return state;

@@ -8,7 +8,7 @@ import {
   GET_PRODUCT_BY_NAME,
   FILTER_PRICE_BY_RANGE,
   ORDER_BY_PRICE,
-  URL,
+  // URL,
   SIGNUP,
   GET_USER,
   GET_CATEGORIES,
@@ -48,7 +48,7 @@ import {
 
 export function getProduct() {
   return async function (dispatch) {
-    let product = await axios.get("http://localhost:3001/product");
+    let product = await axios.get(`/product`);
     dispatch({
       type: GET_PRODUCT,
       payload: product.data,
@@ -59,10 +59,10 @@ export function getProduct() {
 // carrito
 export function addProduct(payload) {
   // --------> payload {id:"id usario", item: {id:"id producto"}, que: >=1}({id:input, item:{id: input2}, que: input3})
-  console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
+  // console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
   return async function (dispatch) {
     const response = await axios.post(
-      "http://localhost:3001/user/addCart",
+      `/user/addCart`,
       payload
     );
     dispatch({
@@ -75,10 +75,10 @@ export function addProduct(payload) {
 // carrito
 export function decreseProduct(payload) {
   // --------> payload {id:"id usario", item: {id:"id producto"}, que: >=1}({id:input, item:{id: input2}, que: input3})
-  console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
+  // console.log("soy el payload de manipulateCart: ", payload); // payload para toda la accion (podes añadir el producto por primera vez, sumar o restar(modificar que o cant)) ---> {id:"id del usuario", item: {id:"id del producto"}, cant:"1"(SIEMPRE QUE QUERRAMOS AÑADIR AL CARRITO), que:"+ o -"(SI LO MANDO VACIO ME BORRA EL PRODUCTO)}
   return async function (dispatch) {
     const response = await axios.post(
-      "http://localhost:3001/user/addCart",
+      `/user/addCart`,
       payload
     );
     dispatch({
@@ -90,12 +90,12 @@ export function decreseProduct(payload) {
 
 // carrito
 export function clearCart(payload) {
-  console.log("soy el payload de clearCart: ", payload);
+  // console.log("soy el payload de clearCart: ", payload);
   return async function (dispatch) {
     const response = axios.put(
-      `http://localhost:3001/user/clearCart?id=${payload}`
+      `/user/clearCart?id=${payload}`
     );
-    console.log("soy el response de clearCart: ", response);
+    // console.log("soy el response de clearCart: ", response);
     dispatch({
       type: CLEAR_CART,
       payload: response.data,
@@ -105,12 +105,12 @@ export function clearCart(payload) {
 
 // carrito
 export function deleteItem(payload) {
-  console.log("soy el payload de deleteItem: ", payload);
+  // console.log("soy el payload de deleteItem: ", payload);
   return async function (dispatch) {
     const response = axios.put(
-      `http://localhost:3001/user/deleteProduct`, payload
+      `/user/deleteProduct`, payload
     );
-    console.log("soy el response de deleteItem: ", response);
+    // console.log("soy el response de deleteItem: ", response);
     dispatch({
       type: DELETE_ITEM,
       payload: response.data,
@@ -121,7 +121,7 @@ export function deleteItem(payload) {
 export function getProductByName(name) {
   return async function (dispatch) {
     try {
-      let product = await axios.get(URL + "product?name=" + name);
+      let product = await axios.get(`/product?name=${name}`);
       return dispatch({
         type: GET_PRODUCT_BY_NAME,
         payload: product.data,
@@ -150,7 +150,7 @@ export function orderByPrice(payload) {
 // action para obtener la sesion activa
 export function getUserInfoGoogle(payload) {
   return async function (dispatch) {
-    const arr = await axios.get(`${URL}sessionActive/`, {
+    const arr = await axios.get(`/sessionActive/`, {
       withCredentials: true,
     });
     return dispatch({
@@ -164,7 +164,7 @@ export function getUserInfoGoogle(payload) {
 export function localLogin(payload) {
   return async function (dispatch) {
     await axios
-      .post(`${URL}localLogin/`, payload, { withCredentials: true })
+      .post(`/localLogin/`, payload, { withCredentials: true })
       .then((response) => {
         dispatch({
           type: LOCAL_LOGIN,
@@ -177,7 +177,7 @@ export function localLogin(payload) {
 
 export function getUser() {
   return async function (dispatch) {
-    const info = await axios.get("http://localhost:3001/sessionActive");
+    const info = await axios.get(`/sessionActive`);
     return dispatch({
       type: GET_USER,
       payload: info,
@@ -189,7 +189,7 @@ export function getUser() {
 export function signUp(payload) {
   return async function (dispatch) {
     await axios
-      .post(`${URL}user/`, payload)
+      .post(`/user/`, payload)
       .then((response) => {
         dispatch({
           type: SIGNUP,
@@ -202,7 +202,7 @@ export function signUp(payload) {
 
 export function getCategories() {
   return async function (dispatch) {
-    const info = await axios.get("http://localhost:3001/category");
+    const info = await axios.get(`/category`);
     return dispatch({
       type: GET_CATEGORIES,
       payload: info.data,
@@ -213,7 +213,7 @@ export function getCategories() {
 export function getDetailsProduct(id) {
   return async (dispatch) => {
     try {
-      let urlId = await axios.get(URL + "product/", {
+      let urlId = await axios.get(`/product/`, {
         params: { id: id },
       });
       dispatch({
@@ -236,7 +236,7 @@ export function filterBySearch(payload) {
 export function userMessage(payload) {
   return async function (dispatch) {
     await axios
-      .post(`${URL}userMessage/`, payload)
+      .post(`/userMessage/`, payload)
       .then((response) => {
         dispatch({
           type: USER_MESSAGE,
@@ -248,10 +248,10 @@ export function userMessage(payload) {
 }
 
 export function postProducts(payload) {
-  console.log('soy el payload de postProducts: ', payload)
+  // console.log('soy el payload de postProducts: ', payload)
   return async function (dispatch) {
-    let response = await axios.post(URL + "product/", payload);
-    console.log('soy el response de postProducts: ', response)
+    let response = await axios.post(`/product/`, payload);
+    // console.log('soy el response de postProducts: ', response)
     dispatch({
       type: POST_PRODUCT,
       payload: response.data 
@@ -268,7 +268,7 @@ export function getSubcategory(payload) {
 
 export function getAllUsers() {
   return async function (dispatch) {
-    let user = await axios.get(URL + "user");
+    let user = await axios.get(`/user`);
     dispatch({
       type: GET_ALL_USERS,
       payload: user.data,
@@ -279,7 +279,7 @@ export function getAllUsers() {
 export function deleteUser(payload) {
   return async function (dispatch) {
     axios
-      .delete(URL + "user?id=" + payload)
+      .delete(`/user?id=${payload}`)
       .then((response) => {
         dispatch({
           type: DELETE_USER,
@@ -293,7 +293,7 @@ export function deleteUser(payload) {
 export function deleteProduct(payload) {
   return async function (dispatch) {
     axios
-      .delete(URL + "product?id=" + payload)
+      .delete(`/product?id=${payload}`)
       .then((response) => {
         dispatch({
           type: DELETE_PRODUCT,
@@ -307,7 +307,7 @@ export function deleteProduct(payload) {
 export function updateUser(payload) {
   return async function (dispatch) {
     await axios
-      .put(`${URL}user`, payload)
+      .put(`/user`, payload)
       .then((response) => {
         dispatch({
           type: PUT_USER,
@@ -368,7 +368,7 @@ export function productsByName(payload) {
 export function compraMP(payload) {
   return async function (dispatch) {
     await axios
-      .post(`${URL}mercadoPago2`, payload,)
+      .post(`/mercadoPago2`, payload,)
       .then((response) => {
 
         dispatch({
@@ -383,7 +383,7 @@ export function compraMP(payload) {
 export function compraMP2(payload) {
   return async function (dispatch) {
     await axios
-      .post(`${URL}mercadoPago`, payload,)
+      .post(`/mercadoPago`, payload,)
       .then((response) => {
 
         dispatch({
@@ -398,7 +398,7 @@ export function compraMP2(payload) {
 export function successMail(payload) {
   return async function (dispatch) {
     await axios
-      .post(`${URL}successMail`, payload, { withCredentials: true })
+      .post(`/successMail`, payload, { withCredentials: true })
       .then((response) => {
 
         dispatch({
@@ -413,7 +413,7 @@ export function successMail(payload) {
 export function failMail(payload) {
   return async function (dispatch) {
     await axios
-      .post(`${URL}failMail`, payload, { withCredentials: true })
+      .post(`/failMail`, payload, { withCredentials: true })
       .then((response) => {
 
         dispatch({
@@ -428,7 +428,7 @@ export function failMail(payload) {
 // cerrar sesion
 export function logout() {
   return async function (dispatch) {
-    let response = await axios.get("http://localhost:3001/loginGoogle/logout", { withCredentials: true });
+    let response = await axios.get(`/loginGoogle/logout`, { withCredentials: true });
     dispatch({
       type: LOGOUT,
       payload: response.data,
@@ -440,7 +440,7 @@ export function logout() {
 export function updateStock(payload) {
   return async function (dispatch) {
     await axios
-      .post(`${URL}product/update`, payload)
+      .post(`/product/update`, payload)
       .then((response) => {
 
         dispatch({
@@ -456,7 +456,7 @@ export function updateStock(payload) {
 export function postOrder(payload) {
   return async function (dispatch) {
     await axios
-      .post(`${URL}order`, payload)
+      .post(`/order`, payload)
       .then((response) => {
 
         dispatch({
@@ -470,7 +470,7 @@ export function postOrder(payload) {
 
 export function getAllOrders() {
   return async function (dispatch) {
-    let orders = await axios.get(URL + "order");
+    let orders = await axios.get(`/order`);
     dispatch({
       type: GET_ALL_ORDERS,
       payload: orders.data
@@ -508,10 +508,10 @@ export const deleteNewsletter = (payload) => {
 };
 
 export function addReview(payload) {
-  console.log('soy el payload de addReview: ', payload)
+  // console.log('soy el payload de addReview: ', payload)
   return async function(dispatch) {
-    const response = await axios.post(`${URL}review`, payload)
-    console.log('soy el response de addReview: ', response)
+    const response = await axios.post(`/review`, payload)
+    // console.log('soy el response de addReview: ', response)
     dispatch({
       type: ADD_REVIEW,
       payload: response.data,
@@ -520,9 +520,9 @@ export function addReview(payload) {
 }
 
 export function updateProduct(payload){
-  console.log(payload, "lkbldnflinwfdre")
+  // console.log(payload, "lkbldnflinwfdre")
 return async function (dispatch) {
-  await axios.put( URL + "product/" , payload)
+  await axios.put(`/product/` , payload)
   .then((response) => {
     dispatch({
       type:PUT_PRODUCT,
@@ -535,9 +535,9 @@ return async function (dispatch) {
 
 export function allReviews() {
   return async function(dispatch) {
-    const response = await axios.get(`${URL}review`)
+    const response = await axios.get(`/review`)
     // const response = await axios.get(`${URL}product/info?id=${payload}`, payload)
-    console.log('soy el response de allReviews: ', response)
+    // console.log('soy el response de allReviews: ', response)
     dispatch({
       type: ALL_REVIEWS,
       payload: response.data
@@ -546,10 +546,10 @@ export function allReviews() {
 }
 
 export function approveProduct(payload) {
-  console.log('soy el payload de approveProduct: ', payload)
+  // console.log('soy el payload de approveProduct: ', payload)
   return async function(dispatch) {
-    const response = await axios.put(`${URL}product/aprobar?id=${payload}`)
-    console.log('soy el response de approveProduct: ', response)
+    const response = await axios.put(`/product/aprobar?id=${payload}`)
+    // console.log('soy el response de approveProduct: ', response)
     dispatch({
       type: APPROVE_PRODUCT,
       payload: response.data
@@ -559,7 +559,7 @@ export function approveProduct(payload) {
 
 export function getDbSubcategories() {
   return async function(dispatch) {
-    const response = await axios.get(`${URL}subcategory`)
+    const response = await axios.get(`/subcategory`)
     dispatch({
       type: DB_SUBCATEGORIES,
       payload: response.data
