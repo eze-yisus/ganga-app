@@ -18,40 +18,43 @@ const cors = require('cors');
 server.name = 'API';
 
 // server.use(cors());
-// server.use(
-//   cors({
-//     origin: true,             //se habilitan las credenciales de cors para los pedidos que vengan del front
-//     credentials: true,
-//   })
-// )
+server.use(
+  cors({
+    origin: "https://ganga-app.vercel.app",             //se habilitan las credenciales de cors para los pedidos que vengan del front
+    credentials: true,
+  })
+)
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
-server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // update to match the domain you will make the request from
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  next();
-});
+// server.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://ganga-app.vercel.app'); // update to match the domain you will make the request from
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+//   next();
+// });
 
 
 // - - - - Deploy - - - -
-
-// server.use(                                             //se habilita el manejo de sesiones para el server
-//   session({
-//     secret: "secretcode",
-//     resave: true,
-//     saveUninitialized: true,
-//     cookie: {
-//       httpOnly: true,
-//       secure: true,
-//       sameSite: "none",
-//     }
-//   })
-// );
+server.use(                                             //se habilita el manejo de sesiones para el server
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    },
+    store: MongoStore.create({
+      mongoUrl: "mongodb+srv://eze:eze@cluster0.5cxnx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+      ttl: 14 * 24 * 60 * 60 // = 14 days. Default
+    })
+  })
+);
 
 server.use(                                             //se habilita el manejo de sesiones para el server
   session({
