@@ -55,13 +55,13 @@ export default function VendorSalesList({ user, orders, users }) {
     <div>
       <div>
         <h4 className="text-5xl text-center font-light pt-10 pb-12">Ventas</h4>
-        <div className="">
+        <div className="h-80 mb-20">
           <DataGrid
             rows={rows}
             columns={columns}
             pageSize={10}
             rowsPerPageOptions={[10]}
-            checkboxSelection
+            // checkboxSelection
           />
         </div>
       </div>

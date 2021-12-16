@@ -64,7 +64,6 @@ export default function ProductList({products}) {
           )
           dispatch(deleteProduct(id));
           setRows(rows.filter((i) => i.id !== id));
-          window.location.reload();
       }
     })
   }
@@ -77,12 +76,12 @@ export default function ProductList({products}) {
    
     if (p.subcategoryId > 0) {
       let sub = subcategories.filter(s=> s.id === p.subcategoryId);
-      sub = sub[0]?.name
-      p.subcategories = sub;
+      let Sub = sub[0]?.name
+      p.subcategories = Sub;
     } 
 
     if (p.brand === null || p.brand === undefined) {
-      p.brand = "indefinida"
+      p.brand = "Ganga"
     }
   
     return {
@@ -113,7 +112,7 @@ export default function ProductList({products}) {
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[10]}
-          checkboxSelection
+          // checkboxSelection
         />
       </div>
     </div>

@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useNavigate, Link } from "react-router-dom";
 import Nav from "../../Nav/NavBar/nav";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import Boton from "../../Nav/boton";
+import User from "../../Nav/User/user";
 
-import { updateUser, getAllUsers } from "../../Redux/Actions/actions";
+
+import { updateUser, getAllUsers, getUserInfoGoogle} from "../../Redux/Actions/actions";
 import s from './admin.module.css';
 import UserPurchaseList from "./userPurchaseList";
 import VendorProducts from "./vendorProducts";
@@ -15,8 +19,13 @@ export default function UserInfo() {
     const navigate = useNavigate();
     const allUsers = useSelector((state) => state.allUsers);
     const orders = useSelector((state) => state.orders);
+    const user = useSelector((state) => state.getInfoGoogle);
+
+    useEffect(() => {
+      dispatch(getUserInfoGoogle());
+    }, [dispatch]);
   
-    // const userfil = useSelector((state) => state.getInfoGoogle)
+    
     const { id } = useParams()
     const userfil = allUsers.filter((el) => el.id === id)
    
@@ -67,7 +76,6 @@ export default function UserInfo() {
 
     const submit = (e) => {
         e.preventDefault();
-        console.log('soy el input del submit: ', input)
         dispatch(updateUser(input));
         navigate("/panel")
         
@@ -75,15 +83,22 @@ export default function UserInfo() {
 
     return (
         <div>
-            <Nav />
-            <div className="p-5">
+              {user && user.login ? (
+        <div>
+          <div className="absolute top-5 right-20 z-50 mr-10 w-28">
+            <User />
+          </div>
+          <Nav />
+        </div>
+      ) : null}
+            <div className="absolute top-18 p-5">
                 <Link to="/panel">
-                    <button type="button">
-                        {"<-Volver"}
-                    </button>
+                <Boton
+      parametro={"/panel"}
+      icono={<IoMdArrowRoundBack />} />
                 </Link>
             </div>
-            <h3 className="text-center text-3xl">Modificar tus datos</h3>
+            <h3 className="text-center text-3xl pt-5">Modificar tus datos</h3>
             <form className="text-center" onSubmit={submit}>
 
 
@@ -120,7 +135,7 @@ export default function UserInfo() {
                     <div>
                         <label> Fecha de Nacimiento </label>
                     </div>
-                    <input className="w-60 text-center rounded bg-gray-700 text-white"
+                    <input className="w-60 text-center rounded bg-gray-700 text-white h-6"
                         onChange={handleChange}
                         type="date"
                         value={input.birthdate}
@@ -220,12 +235,12 @@ export default function UserInfo() {
                 </div>
                 <div className="px-8 py-4">
                     <div>
-                        <label> Hacer vendedor / Deshacer vendedor </label>
+                        <label> Permisos </label>
                     </div>
                     <select className="text-center bg-gray-700 text-white rounded" name="seller" onChange={handleChange}>
-                        <option selected="true" disabled="disabled" >Seleccionar </option>
-                        <option value="true" >true </option>
-                        <option value="false" >false </option>
+                        <option selected="" disabled="disabled" >Seleccionar </option>
+                        <option value="true" >Vendedor </option>
+                        <option value="false" >Usuario </option>
                     </select>
                 </div>
                 <div className="px-8 py-4">

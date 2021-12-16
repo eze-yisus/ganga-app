@@ -4,7 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { TiDeleteOutline } from "react-icons/ti";
 
 import s from "../admin.module.css";
-import { approveProduct, deleteProduct, getProduct} from "../../../Redux/Actions/actions";
+import { approveProduct, deleteProduct, deleteProduct2, getProduct} from "../../../Redux/Actions/actions";
 import { BsPencilSquare } from "react-icons/bs";
 
 export default function VerificationList({ products }) {
@@ -14,7 +14,7 @@ export default function VerificationList({ products }) {
     const subcategories = useSelector((state) => state.dbSubcategories);
   
     // let newProducts = products.filter((p) => p.approved === false);
-    // console.log("newP", newProducts);
+    // console.log("soy products: ", products);
 
   const columns = [
     { field: "id", headerName: "ID", width: 50 },
@@ -50,8 +50,11 @@ export default function VerificationList({ products }) {
     console.log("aprobadoo")
     // e.preventDefault();
     dispatch(approveProduct(id));
+    console.log('soy el id del handleSubmit:', id)
+    // dispatch(deleteProduct2(id));
     setRows(rows.filter((i) => i.id !== id));
     dispatch(getProduct());
+    // window.location.reload();
 
   }
 
@@ -105,7 +108,7 @@ export default function VerificationList({ products }) {
           columns={columns}
           pageSize={20}
           rowsPerPageOptions={[20]}
-          checkboxSelection
+          // checkboxSelection
         />
       </div>
     </div>

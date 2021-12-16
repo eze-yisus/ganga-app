@@ -18,7 +18,8 @@ async function postProduct(req, res) {
     idUser,
     idCategory,
     idSubcategory,
-    status
+    status,
+    approved
   } = req.body;
   // Formato para enviar cumpleaños: 1991-11-28       // modificar en postman brand por mark y agregar owner
 
@@ -39,6 +40,7 @@ async function postProduct(req, res) {
       image,
       owner,
       status,
+      approved
     };
 
     try {
@@ -61,7 +63,6 @@ async function postProduct(req, res) {
         : console.log(
             "No se ha podido relacionar el producto con la subcategoria"
           );
-
         
 
       // if (newProduct) res.json({ type: "success", data: product });

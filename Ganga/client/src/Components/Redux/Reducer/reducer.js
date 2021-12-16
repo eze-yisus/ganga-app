@@ -38,7 +38,8 @@ import {
   PUT_PRODUCT,
   POST_PRODUCT,
   DB_SUBCATEGORIES,
-  OFFICIALSTORE
+  DELETE_PRODUCT2
+  
 } from "../Actions/const";
 
 const initialState = {
@@ -63,8 +64,7 @@ const initialState = {
   allReviews: [],
   productApproved: [],
   postProduct: [],
-  dbSubcategories: [],
-  officialStore: []
+  dbSubcategories: []
 };
 
 function rootReducer(state = initialState, { type, payload, price1, price2 }) {
@@ -104,7 +104,7 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
     case FILTER_PRICE_BY_RANGE: {
       const products = state.allProducts2;
       let filterPrice = products.filter(
-        (el) => el.price >= price1 && el.price <= price2
+        (el) => el.price >= payload.price1 && el.price <= payload.price2
       );
       return {
         ...state,
@@ -244,14 +244,18 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
       };
 
     case DELETE_USER:
-      state.allUsers.filter((el) => el.id !== payload);
       return {
-        state,
+        ...state,
       };
+
     case DELETE_PRODUCT:
-      state.product.filter((el) => el.id !== payload);
       return {
-        state,
+        ...state,
+      };
+      
+    case DELETE_PRODUCT2:
+      return {
+        ...state
       };
     case PRODUCTS_BY_NAME:
       let filter4 = state.allProducts2.filter((el) =>
@@ -315,12 +319,6 @@ function rootReducer(state = initialState, { type, payload, price1, price2 }) {
       ...state,
       dbSubcategories: payload
     }
-
-    case OFFICIALSTORE:
-      return {
-        ...state,
-        officialStore: payload
-      }
 
     default: {
       return state;

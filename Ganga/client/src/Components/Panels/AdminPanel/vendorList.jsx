@@ -61,7 +61,6 @@ export default function VendorList({ vendors, products}) {
           )
           dispatch(deleteUser(id));
           setRows(rows.filter((i) => i.id !== id));
-          window.location.reload();
       }
     })
   }
@@ -101,7 +100,7 @@ export default function VendorList({ vendors, products}) {
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[10]}
-          checkboxSelection
+          // checkboxSelection
         />
       </div>
     </div>

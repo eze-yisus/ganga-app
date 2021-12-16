@@ -200,6 +200,16 @@
     position: relative;
     top: -1vh;
   }
+
+  .team {
+    position: relative;
+    margin-top: 24%;
+  }
+
+  .footerWe {
+    position: relative;
+    margin-top: 5%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

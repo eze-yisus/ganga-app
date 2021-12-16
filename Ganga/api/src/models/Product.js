@@ -54,7 +54,7 @@ module.exports = (sequelize) => {
 
             approved: {
                 type: DataTypes.BOOLEAN,
-                defaultValue: false
+                defaultValue: true
             },
 
         },

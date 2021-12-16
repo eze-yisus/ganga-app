@@ -16,6 +16,7 @@ import { IoMdArrowRoundBack } from "react-icons/io"
 import { BsPatchCheckFill } from "react-icons/bs";
 import Boton from "../Nav/boton"
 import CardReviews from "./cardReviews";
+import User from "../Nav/User/user";
 
 
 export default function ProductId() {
@@ -23,7 +24,7 @@ export default function ProductId() {
   const navigate = useNavigate();
   const [, /*state*/ setState] = useState([]);
   const info = useSelector((state) => state.detailProduct);
-  const User = useSelector((state) => state.getInfoGoogle);
+  const user = useSelector((state) => state.getInfoGoogle);
   const Reviews = useSelector((state) => state.allReviews)
   const official = useSelector((state) => state.officialStore); //officialStore
   const { id } = useParams();
@@ -54,14 +55,13 @@ export default function ProductId() {
   // console.log(promedio, "PROMEDIO")
 
   function handleAddToCart() {
-    console.log("id User", User.id);
-    console.log("Product id:", info.id);
-    if (!User.login) {
+
+    if (!user.login) {
       navigate("/ingresar");
       return
     }
     dispatch(
-      addProduct({ id: User.id, item: { id: info.id }, cant: 1, que: "+" })
+      addProduct({ id: user.id, item: { id: info.id }, cant: 1, que: "+" })
     );
     Swal.fire({
       position: 'top-end',
@@ -89,14 +89,21 @@ export default function ProductId() {
 
   return (
     <div className={a.body}>
-      <Nav />
+      {user && user.login ? (
+        <div>
+          <div className="absolute top-5 right-20 z-50 mr-10 w-28">
+            <User />
+          </div>
+          <Nav />
+        </div>
+      ) : null}
       <div className="absolute top-12 left-1">
         <Boton
           parametro={"/catalogo"}
           icono={<IoMdArrowRoundBack />} />
       </div>
       <div className="absolute top-30 right-1">
-          {official.officialStore ? (
+          {official?.officialStore ? (
             <div className={a.verificate}>
               <div className={a.logoVerificate}><BsPatchCheckFill/></div>
           <h6> Tienda Oficial: <strong>{official.name}</strong></h6>
@@ -121,9 +128,25 @@ export default function ProductId() {
 
                 <div>
 
-                  <div className={a.brand}>
-                    <strong>{info.brand}</strong>
-                  </div>
+                <div className={a.containerButton}>
+              {user.login && info.stock > 0 && (
+                <button className={a.button}>
+                  <MercadoPago2
+                    title={info.name}
+                    unit_price={info.price}
+                    id={user.id}
+                    item_id={info.id}
+                  />
+                </button>
+              )}
+              {info.stock > 0 && (
+                <button onClick={handleAddToCart} className={a.button}>
+                  Agregar al carrito
+                </button>
+              )}
+         
+            </div>
+                  
                 </div>
               </div>
 
@@ -137,9 +160,12 @@ export default function ProductId() {
                 <strong>{info.description}</strong>
               </div>
 
-
             </div>
             <div className={a.containerPrice}>
+                <div>
+                  <strong>Stock: {info.stock}</strong>
+                </div>
+
               <div className={a.colorPrecio}>
                 <strong>Su precio en un pago:</strong>
               </div>
@@ -151,24 +177,9 @@ export default function ProductId() {
             </div>
 
 
-            <div className={a.containerButton}>
-              {User.login && info.stock > 0 && (
-                <button className={a.button}>
-                  <MercadoPago2
-                    title={info.name}
-                    unit_price={info.price}
-                    id={User.id}
-                    item_id={info.id}
-                  />
-                </button>
-              )}
-              {info.stock > 0 && (
-                <button onClick={handleAddToCart} className={a.button}>
-                  Agregar al carrito
-                </button>
-              )}
-         
-            </div>
+            <div className={a.brand}>
+                    <strong>{info.brand}</strong>
+                  </div>
 
           </div>
 

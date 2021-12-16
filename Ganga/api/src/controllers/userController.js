@@ -7,7 +7,7 @@ async function postUser(req, res) {
       y se crea en caso de no haber
     */
 
-  const { name, surname, mail, address, image, seller, birthdate, password, cellphone, country, province, cp } = req.body;
+  const { name, surname, mail, address, image, seller, birthdate, password, cellphone, country, province, cp, officialStore } = req.body;
   // Formato para enviar cumpleaños: 1991-11-28     // modificar en postman surname y agregar cellphone, country, province, cp
 
   const check = await User.findOne({
@@ -30,7 +30,8 @@ async function postUser(req, res) {
       cellphone,
       country,
       province,
-      cp
+      cp,
+      officialStore
     };
 
     try {

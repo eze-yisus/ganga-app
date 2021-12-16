@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import Card from "../../Card/card";
+import User from "../User/user";
 import {
   orderByPrice,
   getUser,
@@ -9,6 +10,7 @@ import {
   getProduct,
   getFilterByCategory,
   filterBySubCat,
+  getUserInfoGoogle
 } from "../../Redux/Actions/actions";
 import "./categories.css";
 import FilterPrice2 from "../Filter/filterPrice2";
@@ -22,6 +24,7 @@ export default function Categorias() {
   const navigate = useNavigate();
 
   const { nombre } = useParams();
+  const user = useSelector((state) => state.getInfoGoogle);
   const subcategories = useSelector((state) => state.subcategories);
   const allProduct = useSelector((state) => state.product);
   const [, setOrden] = useState("");
@@ -48,7 +51,7 @@ export default function Categorias() {
   }, [dispatch, nombre]);
 
   useEffect(() => {
-    dispatch(getUser());
+    dispatch(getUserInfoGoogle());
   }, [dispatch]);
 
   function handleClick(e) {
@@ -72,7 +75,15 @@ export default function Categorias() {
 
   return (
     <div className="containerCategory">
-      <Nav className="flex justify-between items-center h-20 w-8 text-black" />
+      {/* <Nav className="flex justify-between items-center h-20 w-8 text-black" /> */}
+      {user && user.login ? (
+        <div>
+          <div className="absolute top-5 right-20 z-50 mr-10 w-28">
+            <User />
+          </div>
+          <Nav className="flex justify-between items-center h-20 w-8 text-black"/>
+        </div>
+      ) : null}
       <div className="bannerProdCategory">
         <h1 className="aloneCategory">SOLO AQUÍ EN GANGA</h1>
       </div>

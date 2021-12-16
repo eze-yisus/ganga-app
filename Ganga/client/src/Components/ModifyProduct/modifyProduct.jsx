@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getDetailsProduct, getCategories, /*getSubcategory,*/ updateProduct, getDbSubcategories } from '../Redux/Actions/actions'
 import s from './modifyProduct.module.css'
 import Boton from '../Nav/boton'
@@ -10,7 +10,7 @@ import { IoMdArrowRoundBack } from "react-icons/io"
 export default function ModifyProduct() {
     const { id } = useParams();
     const dispatch = useDispatch()
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [image, setImage] = useState("");
     const Info = useSelector((state) => state.detailProduct);
@@ -124,7 +124,7 @@ export default function ModifyProduct() {
             idCategory: " ",
             idSubcategory: " ",
         })
-        // navigate("/panel")
+        navigate("/panel")
         //  window.location.reload();
     }
 

@@ -18,17 +18,9 @@ export default function VendorProductList({ products, user }) {
    
     useEffect(() => {
       dispatch(allReviews())
-    },[dispatch]);
-
-    useEffect(() => {
       dispatch(getCategories());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getDbSubcategories());
-}, [dispatch]);
-
-
+      dispatch(getDbSubcategories());
+    },[dispatch]);
 
   const columns = [
     { field: "id", headerName: "ID", width: 50 },
@@ -78,7 +70,6 @@ export default function VendorProductList({ products, user }) {
           )
           dispatch(deleteProduct(id));
           setRows(rows.filter((i) => i.id !== id));
-          window.location.reload();
       }
     })
   }
@@ -127,7 +118,7 @@ export default function VendorProductList({ products, user }) {
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[10]}
-          checkboxSelection
+          // checkboxSelection
         />
       </div>
     </div>

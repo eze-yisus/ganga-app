@@ -28,6 +28,7 @@ export const SUCCESS_MAIL = "SUCCES_MAIL"
 export const FAIL_MAIL = "FAIL_MAIL"
 export const DELETE_USER = "DELETE_USER";
 export const DELETE_PRODUCT = "DELETE_PRODUCT";
+export const DELETE_PRODUCT2 = "DELETE_PRODUCT2";
 export const LOGOUT = "LOGOUT";
 export const UPDATE_STOCK = "UPDATE_STOCK";
 export const POST_ORDER = "POST_ORDER";
@@ -41,5 +42,6 @@ export const ALL_REVIEWS = "ALL_REVIEWS";
 export const APPROVE_PRODUCT = "APPROVE_PRODUCT";
 export const POST_PRODUCT = "POST_PRODUCT";
 export const DB_SUBCATEGORIES = "DB_SUBCATEGORIES";
-export const OFFICIALSTORE = "OFFICIALSTORE"
+export const OFFICIALSTORE = "OFFICIALSTORE";
+
 

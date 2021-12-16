@@ -67,6 +67,7 @@ export default function CreateProducts() {
     idUser: getInfoGoogle.id,
     idCategory: " ",
     idSubcategory: " ",
+    approved: "false"
   });
 
   function handleChange(e) {
@@ -144,6 +145,7 @@ export default function CreateProducts() {
       idUser: " ",
       idCategory: " ",
       idSubcategory: " ",
+      approved: "false"
     });
     Swal.fire({
       position: 'center',

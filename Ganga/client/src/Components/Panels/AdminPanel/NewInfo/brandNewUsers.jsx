@@ -12,7 +12,7 @@ export default function BrandNewUsers({today, users}) {
       <div className="py-5 text-center">
         <span className="text-2xl -ml-8">Usuarios nuevos</span>
       </div>
-      <ul>
+      <ul className="flex flex-wrap align-center items-center justify-center">
       {
         newUsers.map(u=> {
           return (

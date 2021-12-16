@@ -44,7 +44,8 @@ import {
   PUT_PRODUCT,
   POST_PRODUCT,
   DB_SUBCATEGORIES,
-  OFFICIALSTORE
+  OFFICIALSTORE,
+  DELETE_PRODUCT2
 } from "./const";
 
 export function getProduct() {
@@ -96,7 +97,6 @@ export function clearCart(payload) {
     const response = axios.put(
       `http://localhost:3001/user/clearCart?id=${payload}`
     );
-    console.log("soy el response de clearCart: ", response);
     dispatch({
       type: CLEAR_CART,
       payload: response.data,
@@ -106,12 +106,10 @@ export function clearCart(payload) {
 
 // carrito
 export function deleteItem(payload) {
-  console.log("soy el payload de deleteItem: ", payload);
   return async function (dispatch) {
     const response = axios.put(
       `http://localhost:3001/user/deleteProduct`, payload
     );
-    console.log("soy el response de deleteItem: ", response);
     dispatch({
       type: DELETE_ITEM,
       payload: response.data,
@@ -133,11 +131,10 @@ export function getProductByName(name) {
   };
 }
 
-export function filterPriceByRange(price1, price2) {
+export function filterPriceByRange(payload) {
   return {
     type: FILTER_PRICE_BY_RANGE,
-    price1,
-    price2,
+    payload
   };
 }
 
@@ -163,7 +160,7 @@ export function getUserInfoGoogle(payload) {
 
 // action para hacer el local login
 export function localLogin(payload) {
-  console.log('soy el payload del localLogin: ', payload)
+  console.log('soy el payload de localLogin: ', payload)
   return async function (dispatch) {
     await axios
       .post(`${URL}localLogin/`, payload, { withCredentials: true })
@@ -190,10 +187,12 @@ export function getUser() {
 
 // action para crear un usuario
 export function signUp(payload) {
+  console.log('soy el payload de signUp: ', payload)
   return async function (dispatch) {
     await axios
       .post(`${URL}user/`, payload)
       .then((response) => {
+        console.log('soy el response de signUp: ', response)
         dispatch({
           type: SIGNUP,
           payload: response.data,
@@ -584,6 +583,21 @@ export function officialStore(payload) {
         console.log('soy el response de officialStore: ', response)
         dispatch({
           type: OFFICIALSTORE,
+          payload: response.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+}
+
+export function deleteProduct2(payload) {
+  return async function (dispatch) {
+    axios
+      .delete(URL + "product?id=" + payload)
+      .then((response) => {
+        console.log('soy el response de deleteProduct2: ', response)
+        dispatch({
+          type: DELETE_PRODUCT2,
           payload: response.data,
         });
       })

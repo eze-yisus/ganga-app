@@ -7,6 +7,8 @@ import "./we.css";
 import prodModal1 from "../../Resources/producModal1.gif";
 import prodModal2 from "../../Resources/producModal2.gif";
 import prodModal3 from "../../Resources/producModal3.gif";
+import Team from "../../Home/Footer/Team/team";
+import FooterCatalog from "../../Home/Footer/footerCatalog";
 import Nav from "../NavBar/nav";
 
 function Nosotros() {
@@ -99,6 +101,12 @@ function Nosotros() {
             <img src={prodModal3} alt="" />
             <h1 className="man">3. lo recibes en tus manos</h1>
           </div>
+        </div>
+        <div className="team">
+        <Team />
+        </div>
+        <div className="footerWe">
+        <FooterCatalog/>
         </div>
     </div>
   );

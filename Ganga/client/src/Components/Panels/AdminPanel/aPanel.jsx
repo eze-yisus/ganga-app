@@ -21,6 +21,7 @@ export default function AdminPanel() {
   const dispatch = useDispatch();
   const allUsers = useSelector((state) => state.allUsers);
   const products = useSelector((state) => state.product);
+  const products2 = useSelector((state) => state.allProducts2);
   const orders = useSelector((state) => state.orders);
   const [usuarios, verUsuarios] = useState(false);
   const [productos, verProductos] = useState(false);
@@ -31,13 +32,7 @@ export default function AdminPanel() {
 
   useEffect(() => {
     dispatch(getProduct());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(getAllUsers());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(getAllOrders());
   }, [dispatch]);
 
@@ -186,7 +181,7 @@ export default function AdminPanel() {
             verProductosNuevos={verProductosNuevos}
           />
           <div className={s.body}>
-          <VerificationList products={products}/>
+          <VerificationList products={products2}/>
           </div>
         </div>
         }

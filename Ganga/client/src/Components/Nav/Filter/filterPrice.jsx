@@ -6,42 +6,52 @@ import "./filterPrice.css";
 export default function FilterPrice() {
   const dispatch = useDispatch();
   const [, setCurrentPage] = useState(1);
-  const [price1, setPrice1] = useState("");
-  const [price2, setPrice2] = useState("");
+  const [input, setInput] = useState({
+    price1: "",
+    price2: "",
+    });
 
-  function handleInput1(e) {
-    e.preventDefault();
-    setPrice1(e.target.value);
-  }
-  function handleInput2(e) {
-    e.preventDefault();
-    setPrice2(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    dispatch(filterPriceByRange(price1, price2));
-    setPrice1(" ");
-    setPrice2(" ");
-    setCurrentPage(1);
-  }
+    function handleInput(e) {
+      setInput({
+        ...input,
+        [e.target.name]: e.target.value,
+      });
+    }
+    
+  
+    function handleSubmit(e) {
+      e.preventDefault();
+      dispatch(filterPriceByRange(input));
+      setCurrentPage(1);
+      setInput({
+        price1: "",
+        price2: "",
+    });
+    }
+    
   return (
     <div className="inputContainer">
       <div className="conPriceMin">
         <input
-          className="inputPrice"
-          type="text"
+         className="inputPrice"
+          type="number"
+          min="1000"
+          name="price1"
+          value={input.price1}
           placeholder="precio mínimo de..."
-          onChange={handleInput1}
+          onChange={handleInput}
         />
       </div>
       <h3 className="has">hasta</h3>
       <div className="conPriceMax">
         <input
-          className="inputPrice"
-          type="text"
+         className="inputPrice"
+          type="number"
+          min="1000"
+          name="price2"
+          value={input.price2}
           placeholder="precio máximo de..."
-          onChange={handleInput2}
+          onChange={handleInput}
         />
       </div>
       <div className="conFil">
