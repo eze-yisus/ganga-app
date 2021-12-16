@@ -7,7 +7,6 @@ const routes = require('./routes/index.js');
 const MongoStore = require('connect-mongo');
 const mongoose = require("mongoose");
 // passport
-
 const passport = require('passport');                   //se importa passport para autenticacion con google
 const session = require("express-session");             //se importa session para el manejo de sesiones con passport
 require('./utils/google-passport-setup');              //se importa para toda la app, la estructura de passport con google
