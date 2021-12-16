@@ -162,7 +162,7 @@ export default function ProductId() {
 
             </div>
             <div className={a.containerPrice}>
-                <div>
+                <div className={a.stock}>
                   <strong>Stock: {info.stock}</strong>
                 </div>
 

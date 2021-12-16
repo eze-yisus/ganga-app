@@ -46,7 +46,7 @@ export function SuccesMp() {
               <tr class="h-12 uppercase">
                 <th class="hidden md:table-cell"></th>
                 <th class="text-left">Producto</th>
-                <th class="lg:text-right text-left pl-5 lg:pl-0">
+                <th class="lg:text-right text-center pl-5 lg:pl-0">
                   <span class="lg:hidden" title="Quantity">
                     Cant
                   </span>

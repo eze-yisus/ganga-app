@@ -286,7 +286,7 @@ export default function ModifyProduct() {
                                 <div className={s.uno}>
                                     <label className="text-center bg-gray-700 text-white">Cargar una Nueva Imagen</label>
                                 </div>
-                                <div className="text-center bg-gray-700 text-white">
+                                <div className="text-center bg-gray-700 text-white rounded">
                                     <input
                                         className={s.inputs}
                                         onChange={uploadImage}

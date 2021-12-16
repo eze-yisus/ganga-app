@@ -46,10 +46,6 @@
 
 
 .grid3 {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:space-between;
     padding-top: 10px;
     padding-bottom: 50px;
     height:350px;
@@ -105,10 +101,6 @@ grid-row-gap: 0px;
     max-height: 180px;
 
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
   }
 .imgName{
     color: transparent;
@@ -116,7 +108,6 @@ grid-row-gap: 0px;
   .crear {
     background-color: rgb(131, 245, 131);
     height: 35px;
-    text-align: center;
     padding-top: 2px;
     padding-bottom: 2px;
     padding-left: 5px;
