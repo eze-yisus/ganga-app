@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import { TiDeleteOutline } from "react-icons/ti";
+import { BsFillCheckCircleFill } from "react-icons/bs"
 
 import s from "../admin.module.css";
 import { approveProduct, deleteProduct, deleteProduct2, getProduct} from "../../../Redux/Actions/actions";
@@ -32,8 +33,8 @@ export default function VerificationList({ products }) {
         const id = params.row.id;
         return (
           <>
-            <button className={s.editar} onClick={() => handleSubmit(id)}>
-            <BsPencilSquare/>
+            <button className={s.check} onClick={() => handleSubmit(id)}>
+            <BsFillCheckCircleFill/>
             </button>
 
             <button onClick={() => handleDelete(id)}>

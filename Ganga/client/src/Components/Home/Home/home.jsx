@@ -10,6 +10,8 @@ import CollagePhotos from "../CollageProducts/collagePhotos";
 import MapView from "../ContactForm/Map/map";
 import s from "./home.module.css";
 import User from "../../Nav/User/user";
+import imgSomosGanga from "../../Resources/somosGanga.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -47,6 +49,13 @@ export default function Home() {
       <div className={s.bghome}>
         <div className={s.bgCarousel}>
           <Carousel />
+        </div>
+        <div className={s.bgSomosGa}>
+        <div className={s.containerSomosGa}>
+          <Link to="/catalogo">
+            <img className={s.imgSomosGa} src={imgSomosGanga} alt="" />
+          </Link>
+        </div>
         </div>
         <div>
           <BestSellingBrands />

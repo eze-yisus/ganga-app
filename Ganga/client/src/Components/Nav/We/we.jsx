@@ -1,24 +1,40 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import "./we.css";
+import { getUserInfoGoogle } from "../../Redux/Actions/actions";
 import prodModal1 from "../../Resources/producModal1.gif";
 import prodModal2 from "../../Resources/producModal2.gif";
 import prodModal3 from "../../Resources/producModal3.gif";
 import Team from "../../Home/Footer/Team/team";
 import FooterCatalog from "../../Home/Footer/footerCatalog";
 import Nav from "../NavBar/nav";
+import User from "../User/user";
 
 function Nosotros() {
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const user = useSelector((state) => state.getInfoGoogle);
+
+  useEffect(() => {
+    dispatch(getUserInfoGoogle());
+  }, [dispatch]);
 
   return (
     <div className="bgWe">
-      <Nav className="flex justify-between items-center h-20 w-8 text-black" />
+      {user && user.login ? (
+        <div>
+          <div className="absolute top-5 right-20 z-50 mr-10 w-28">
+            <User />
+          </div>
+          <Nav className="flex justify-between items-center h-20 w-8 text-black"/>
+        </div>
+      ) : null}
         <div className="welcomeModal">
         </div>
         <div className="WeContainer" id="Nosotros">

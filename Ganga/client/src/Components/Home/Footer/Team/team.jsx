@@ -49,7 +49,7 @@ export default function Team() {
           </div>
           </a>
         </div>
-        <div className="conIgna">
+        <div className="conIgnacio">
           <a href="http://www.linkedin.com/in/ignaestiga"
            style={{ color: "white" }}
            target="_blank" 
@@ -85,7 +85,7 @@ export default function Team() {
         </div>
         </div>
         <div className="containerTeam2">
-        <div className="conJero">
+        <div className="conJeronimo">
           <a href="https://www.linkedin.com/in/jero-caride-dev/"
            style={{ color: "white" }}
            target="_blank" 
@@ -119,7 +119,7 @@ export default function Team() {
           </div>
           </a>
         </div>
-        <div className="conSebas">
+        <div className="conSebastian">
           <a href="https://www.linkedin.com/in/sebastian-trx/"
            style={{ color: "white" }}
            target="_blank" 

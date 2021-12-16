@@ -6,12 +6,11 @@
 
 .sidebar {
     flex: 1;
-    background: rgb(177, 177, 177);
+    background: rgb(0, 56, 82);
     min-height: 700px;
     height: auto;
     border-width: 4px;
     border-color: rgb(165, 165, 165);
-
 }
 
 .body {
@@ -120,6 +119,18 @@
     font-size: 25px;
 }
 .editar:hover {
+    transform: translateY(-2px);
+    color: rgb(46, 129, 46);
+}
+
+.check {
+    padding-top: 2px;
+    padding-left: 20px;
+    text-align: center;
+    color: rgb(76, 207, 76);
+    font-size: 25px;
+}
+.check:hover {
     transform: translateY(-2px);
     color: rgb(46, 129, 46);
 }

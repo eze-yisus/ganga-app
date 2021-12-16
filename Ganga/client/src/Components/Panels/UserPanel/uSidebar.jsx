@@ -14,13 +14,13 @@ export default function UserSidebar({productos, verProductos}) {
       
     return (
         <div className={s.sidebar}>
-            <h3 className="p-10 pt-32 pl-16 text-3xl opacity-60">Opciones</h3>
+            <h3 className="p-10 pt-32 pl-16 text-3xl text-white font-bold">Opciones</h3>
             <ul>
                 <li className="p-8  text-xl hover:bg-gray-400">
-                    <button onClick={Toggle}>Mis Datos</button>
+                    <button onClick={Toggle} className="text-white">Mis Datos</button>
                 </li>
                 <li className="p-8 text-xl hover:bg-gray-400">
-                    <button onClick={toggle}>Mis Compras</button>
+                    <button onClick={toggle} className="text-white">Mis Compras</button>
                 </li>
             </ul>
         </div>

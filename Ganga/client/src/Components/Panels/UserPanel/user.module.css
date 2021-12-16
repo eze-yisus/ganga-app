@@ -12,12 +12,11 @@
 
 .sidebar {
     flex: 1;
-    background: rgb(129, 88, 88);
+    background: rgb(0, 56, 82);
     min-height: 700px;
     height: auto;
     border-width: 4px;
     border-color: rgb(165, 165, 165);
-
 }
 .imgName {
     color: transparent;

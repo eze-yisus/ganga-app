@@ -63,25 +63,25 @@ export default function AdminSidebar({
 
   return (
     <div className={s.sidebar}>
-        <h3 className="p-10 pt-32 pl-16 text-3xl opacity-60">Opciones</h3>
+        <h3 className="p-10 pt-32 pl-16 text-3xl text-white font-bold">Opciones</h3>
         <ul>
           <li className="p-8 pr-48 text-xl hover:bg-gray-400">
-            <button onClick={Togle}>Datos</button>
+            <button onClick={Togle} className="text-white">Datos</button>
           </li>
           <li className="p-8 text-xl hover:bg-gray-400">
-            <button onClick={toggle}>Usuarios</button>
+            <button onClick={toggle} className="text-white">Usuarios</button>
           </li>
           <li className="p-8 text-xl hover:bg-gray-400">
-            <button onClick={Toggle}>Productos</button>
+            <button onClick={Toggle} className="text-white">Productos</button>
           </li>
           <li className="p-8 text-xl hover:bg-gray-400">
-            <button onClick={togle}>Vendedores</button>
+            <button onClick={togle} className="text-white">Vendedores</button>
           </li>
           <li className="p-8 text-xl hover:bg-gray-400">
-            <button onClick={togglE}>Ventas</button>
+            <button onClick={togglE} className="text-white">Ventas</button>
           </li>
           <li className="p-8 text-xl hover:bg-gray-400">
-            <button onClick={TogglE}>Autorizaciónes</button>
+            <button onClick={TogglE} className="text-white">Autorizaciones</button>
           </li>
         </ul>
     </div>

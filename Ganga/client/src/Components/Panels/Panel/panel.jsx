@@ -7,6 +7,7 @@ import AdminPanel from "../AdminPanel/aPanel";
 import { getUserInfoGoogle } from "../../Redux/Actions/actions";
 import Nav from "../../Nav/NavBar/nav";
 import User from "../../Nav/User/user";
+import download from "../../Resources/cargando.gif";
 
 export default function Panel() {
   const dispatch = useDispatch();
@@ -32,7 +33,10 @@ export default function Panel() {
           {!user.admin && !user.seller ? <UserPanel user={user} /> : null}
         </div>
       ) : (
-        <h1>cargando...</h1>
+          // <h1>Cargando...</h1>
+        <div className="download">
+            <img src={download} alt="" />
+          </div>
       )}
     </div>
   );

@@ -36,19 +36,19 @@ export default function VendedorSidebar({
   return (
     <div className={s.sidebar}>
       <div className="">
-        <h3 className="p-10 pt-32 pl-16 text-3xl opacity-60">Opciones</h3>
+        <h3 className="p-10 pt-32 pl-16 text-3xl text-white font-bold">Opciones</h3>
         <ul>
           <li className="p-8 pr-48 text-xl hover:bg-gray-400 active:bg-gray-500">
-            <button onClick={Togle}>Mis Datos</button>
+            <button onClick={Togle} className="text-white">Mis Datos</button>
           </li>
           <li className="p-8 text-xl hover:bg-gray-400 active:bg-gray-500">
-            <button onClick={toggle}>Mis Productos</button>
+            <button onClick={toggle} className="text-white">Mis Productos</button>
           </li>
           <li className="p-8 text-xl hover:bg-gray-400 active:bg-gray-500">
-            <button onClick={Toggle}>Mis Ventas</button>
+            <button onClick={Toggle} className="text-white">Mis Ventas</button>
           </li>
           <li className="p-8 text-xl hover:bg-gray-400 active:bg-gray-500">
-            <button onClick={togle}>Mis Compras</button>
+            <button onClick={togle} className="text-white">Mis Compras</button>
           </li>
         </ul>
       </div>

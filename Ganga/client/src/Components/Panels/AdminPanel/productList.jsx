@@ -6,7 +6,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { BsPencilSquare } from "react-icons/bs";
 import Swal from 'sweetalert2';
 
-import { deleteProduct} from "../../Redux/Actions/actions";
+import { deleteProduct, getDbSubcategories} from "../../Redux/Actions/actions";
 import ProductsChart from "./aCharts/Products";
 import s from "./admin.module.css";
 

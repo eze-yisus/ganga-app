@@ -31,7 +31,6 @@ export default function ModifyProduct() {
     }, [dispatch]);
 
     let info = Info?.filter((i) => i.id === id);
-
     info = info[0];
 
 
@@ -47,6 +46,7 @@ export default function ModifyProduct() {
         idCategory: info?.idCategory,
         idSubcategory: info?.idSubcategory,
     })
+    console.log("inputs", )
 
     const uploadImage = async (e) => {
         const files = e.target.files;
@@ -112,18 +112,18 @@ export default function ModifyProduct() {
     const submit = (e) => {
         e.preventDefault();
         dispatch(updateProduct(input));
-        setInput({
-            id: id,
-            name: " ",
-            brand: " ",
-            description: " ",
-            price: " ",
-            status: " ",
-            stock: " ",
-            image: " ",
-            idCategory: " ",
-            idSubcategory: " ",
-        })
+        // setInput({
+        //     id: id,
+        //     name: " ",
+        //     brand: " ",
+        //     description: " ",
+        //     price: " ",
+        //     status: " ",
+        //     stock: " ",
+        //     image: " ",
+        //     idCategory: " ",
+        //     idSubcategory: " ",
+        // })
         navigate("/panel")
         //  window.location.reload();
     }
@@ -150,7 +150,7 @@ export default function ModifyProduct() {
                                         onChange={handleChange}
                                         type='text'
                                         name="name"
-                                        placeholder="Nombre del Producto"
+                                        // placeholder="Nombre del Producto"
                                     />
                                 </div>
                                 <div>

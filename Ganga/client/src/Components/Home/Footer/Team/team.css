@@ -1,477 +1,525 @@
 .containerTeam {
-    background-color: white;
-    background-attachment: fixed;
-    background-position: center;
+  background-color: white;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .bannerTeam {
+    width: 80%;
+    height: 250px;
+    left: 10%;
+    top: 12vh;
+    position: relative;
+    border-radius: 10px;
+    background-image: url(../../../Resources/bannerTeam.png) !important;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
   }
-  
-  @media (min-width: 1200px) and (max-width: 1399px) {
-    .bannerTeam {
-      width: 80%;
-      height: 250px;
-      left: 10%;
-      top: 12vh;
-      position: relative;
-      border-radius: 10px;
-      background-image: url(../../../Resources/bannerTeam.png) !important;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      overflow: hidden;
-    }
-  
-    .containerDevs {
-      left: 0%;
-      top: 13vw;
-    }
-  
-    .containerTeam1 {
-      position: relative;
-      top: -1vw;  
-    }
-  
-    .conCarlos {
-      background-color: rgb(8, 15, 66);
-      width: 18%;
-      height: 60%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      position: relative;
-      color: white;
-      left: 10%;
-      margin-top: 10%;
-    }
-  
-    .containerNomCa {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: -12%;
-      top: -13.5vw;
-    }
-  
-    .nomCa {
-      font-size: 18px;
-      margin-left: -19%;
-    }
-  
-    .roleCa {
-      font-size: 12px;
-      margin-top: -4%;
-      margin-left: -7%;
-      color: rgb(255, 255, 146);
-    }
-  
-    .imgCa {
-      width: 50%;
-      height: 50%;
-      position: relative;
-      left: 25%;
-      border-radius: 135px;
-      margin-top: 30%;
-    }
-  
-    .contacCa {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: 1%;
-      top: -1vw;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  
-    .iconCa {
-      position: relative;
-      width: 15%;
-      height: 15%;
-      right: -45%;
-      margin-bottom: 15%;
-    }
-  
-    .conEzequiel {
-      background-color: rgb(8, 15, 66);
-      width: 18%;
-      height: 70%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      position: relative;
-      color: white;
-      left: 30.5%;
-      margin-top: -23.5%;
-    }
-  
-    .containerNomEz {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: -13%;
-      top: -13.5vw;
-    }
-  
-    .nomEz {
-      font-size: 18px;
-      margin-left: -19%;
-    }
-  
-    .roleEz {
-      font-size: 12px;
-      margin-top: -3%;
-      margin-left: 3%;
-      color: rgb(255, 255, 146);
-    }
-  
-    .imgEz {
-      width: 50%;
-      height: 50%;
-      position: relative;
-      left: 25%;
-      border-radius: 130px;
-      margin-top: 30%;
-    }
-  
-    .contacEz {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: 1%;
-      top: -1vw;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  
-    .iconEz {
-      position: relative;
-      width: 15%;
-      height: 15%;
-      right: -45%;
-      margin-bottom: 15%;
-    }
-  
-    .conIgna {
-      background-color: rgb(8, 15, 66);
-      width: 18%;
-      height: 60%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      position: relative;
-      color: white;
-      left: 51.5%;
-      margin-top: -23%;
-    }
-  
-    .containerNomIg {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: -15%;
-      top: -13.5vw;
-    }
-  
-    .nomIg {
-      font-size: 18px;
-      margin-left: -19%;
-    }
-  
-    .roleIg {
-      font-size: 12px;
-      margin-top: -2%;
-      margin-left: 4%;
-      color: rgb(255, 255, 146);
-    }
-  
-    .imgIg {
-      width: 50%;
-      height: 50%;
-      position: relative;
-      left: 25%;
-      border-radius: 130px;
-      margin-top: 30%;
-    }
-  
-    .contacIg {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: 1%;
-      top: -1vw;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  
-    .iconIg {
-      position: relative;
-      width: 15%;
-      height: 15%;
-      right: -45%;
-      margin-bottom: 15%;
-    }
-  
-    .conJairo {
-      background-color: rgb(8, 15, 66);
-      width: 18%;
-      height: 60%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      position: relative;
-      color: white;
-      left: 72%;
-      margin-top: -23.2%;
-    }
-  
-    .containerNomJa {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: -10%;
-      top: -13.5vw;
-    }
-  
-    .nomJa {
-      font-size: 18px;
-      margin-left: -19%;
-    }
-  
-    .roleJa {
-      font-size: 12px;
-      margin-top: -5%;
-      margin-left: -16%;
-      color: rgb(255, 255, 146);
-    }
-  
-    .imgJa {
-      width: 50%;
-      height: 50%;
-      position: relative;
-      left: 25%;
-      border-radius: 130px;
-      margin-top: 30%;
-    }
-  
-    .contacJa {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: 1%;
-      top: -1vw;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  
-    .iconJa {
-      position: relative;
-      width: 15%;
-      height: 15%;
-      right: -45%;
-      margin-bottom: 15%;
-    }
-  
-    .conJero {
-      background-color: rgb(8, 15, 66);
-      width: 18%;
-      height: 60%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      position: relative;
-      color: white;
-      left: 18%;
-      margin-top: 2%;
-    }
-  
-    .containerNomJe {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: -12%;
-      top: -13vw;
-    }
-  
-    .nomJe {
-      font-size: 18px;
-      margin-left: -19%;
-    }
-  
-    .roleJe {
-      font-size: 12px;
-      margin-top: -4%;
-      margin-left: -3%;
-      color: rgb(255, 255, 146);
-    }
-  
-    .imgJe {
-      width: 50%;
-      height: 50%;
-      position: relative;
-      left: 25%;
-      border-radius: 130px;
-      margin-top: 30%;
-    }
-  
-    .contacJe {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: 1%;
-      top: -1vw;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  
-    .iconJe {
-      position: relative;
-      width: 15%;
-      height: 15%;
-      right: -45%;
-      margin-bottom: 15%;
-    }
-  
-  
-  
-    .conRenso {
-      background-color: rgb(8, 15, 66);
-      width: 18%;
-      height: 60%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      position: relative;
-      color: white;
-      left: 40%;
-      margin-top: -23.2%;
-    }
-  
-    .containerNomRe {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: -12%;
-      top: -13vw;
-    }
-  
-    .nomRe {
-      font-size: 18px;
-      margin-left: -19%;
-    }
-  
-    .roleRe {
-      font-size: 12px;
-      margin-top: -3%;
-      margin-left: -4%;
-      color: rgb(255, 255, 146);
-    }
-  
-    .imgRe {
-      width: 50%;
-      height: 50%;
-      position: relative;
-      left: 25%;
-      border-radius: 130px;
-      margin-top: 30%;
-    }
-  
-    .contacRe {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: 1%;
-      top: -1vw;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  
-    .iconRe {
-      position: relative;
-      width: 15%;
-      height: 15%;
-      right: -45%;
-      margin-bottom: 15%;
-    }
-  
-    .conSebas {
-      background-color: rgb(8, 15, 66);
-      width: 18%;
-      height: 60%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      position: relative;
-      color: white;
-      left: 62%;
-      margin-top: -23.2%;
-    }
-  
-    .containerNomSe {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: -14%;
-      top: -13.5vw;
-    }
-  
-    .nomSe {
-      font-size: 18px;
-      margin-left: -19%;
-    }
-  
-    .roleSe {
-      font-size: 12px;
-      margin-top: -3%;
-      margin-left: -2%;
-      color: rgb(255, 255, 146);
-    }
-  
-    .imgSe {
-      width: 50%;
-      height: 50%;
-      position: relative;
-      left: 25%;
-      border-radius: 130px;
-      margin-top: 30%;
-    }
-  
-    .contacSe {
-      display: grid;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      right: 1%;
-      top: -1vw;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  
-    .iconSe {
-      position: relative;
-      width: 15%;
-      height: 15%;
-      right: -45%;
-      margin-bottom: 15%;
-    }
+
+  .containerDevs {
+    left: 0%;
+    top: 13vw;
   }
-  
+
+  .containerTeam1 {
+    position: relative;
+    top: -1vw;  
+  }
+
+  .conCarlos {
+    background-color: rgb(8, 15, 66);
+    width: 18%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+    left: 10%;
+    margin-top: 10%;
+    transition: 0.5s all;
+  }
+
+  .conCarlos:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 10px rgb(198, 255, 92);
+  }
+
+  .containerNomCa {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: -12%;
+    top: -13.5vw;
+  }
+
+  .nomCa {
+    font-size: 18px;
+    margin-left: -19%;
+  }
+
+  .roleCa {
+    font-size: 12px;
+    margin-top: -4%;
+    margin-left: -7%;
+    color: rgb(255, 255, 146);
+  }
+
+  .imgCa {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 25%;
+    border-radius: 135px;
+    margin-top: 30%;
+  }
+
+  .contacCa {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 1%;
+    top: -1vw;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .iconCa {
+    position: relative;
+    width: 15%;
+    height: 15%;
+    right: -45%;
+    margin-bottom: 15%;
+  }
+
+  .conEzequiel {
+    background-color: rgb(8, 15, 66);
+    width: 18%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+    left: 30.5%;
+    margin-top: -23.5%;
+    transition: 0.5s all;
+  }
+
+  .conEzequiel:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 10px rgb(198, 255, 92);
+  }
+
+  .containerNomEz {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: -13%;
+    top: -13.5vw;
+  }
+
+  .nomEz {
+    font-size: 18px;
+    margin-left: -19%;
+  }
+
+  .roleEz {
+    font-size: 12px;
+    margin-top: -3%;
+    margin-left: 3%;
+    color: rgb(255, 255, 146);
+  }
+
+  .imgEz {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 25%;
+    border-radius: 130px;
+    margin-top: 30%;
+  }
+
+  .contacEz {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 1%;
+    top: -1vw;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .iconEz {
+    position: relative;
+    width: 15%;
+    height: 15%;
+    right: -45%;
+    margin-bottom: 15%;
+  }
+
+  .conIgnacio {
+    background-color: rgb(8, 15, 66);
+    width: 18%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+    left: 51.5%;
+    margin-top: -23%;
+    transition: 0.5s all;
+  }
+
+  .conIgnacio:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 10px rgb(198, 255, 92);
+  }
+
+  .containerNomIg {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: -15%;
+    top: -13.5vw;
+  }
+
+  .nomIg {
+    font-size: 18px;
+    margin-left: -19%;
+  }
+
+  .roleIg {
+    font-size: 12px;
+    margin-top: -2%;
+    margin-left: 4%;
+    color: rgb(255, 255, 146);
+  }
+
+  .imgIg {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 25%;
+    border-radius: 130px;
+    margin-top: 30%;
+  }
+
+  .contacIg {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 1%;
+    top: -1vw;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .iconIg {
+    position: relative;
+    width: 15%;
+    height: 15%;
+    right: -45%;
+    margin-bottom: 15%;
+  }
+
+  .conJairo {
+    background-color: rgb(8, 15, 66);
+    width: 18%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+    left: 72%;
+    margin-top: -23.2%;
+    transition: 0.5s all;
+  }
+
+  .conJairo:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 10px rgb(198, 255, 92);
+  }
+
+  .containerNomJa {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: -10%;
+    top: -13.5vw;
+  }
+
+  .nomJa {
+    font-size: 18px;
+    margin-left: -19%;
+  }
+
+  .roleJa {
+    font-size: 12px;
+    margin-top: -5%;
+    margin-left: -16%;
+    color: rgb(255, 255, 146);
+  }
+
+  .imgJa {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 25%;
+    border-radius: 130px;
+    margin-top: 30%;
+  }
+
+  .contacJa {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 1%;
+    top: -1vw;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .iconJa {
+    position: relative;
+    width: 15%;
+    height: 15%;
+    right: -45%;
+    margin-bottom: 15%;
+  }
+
+  .conJeronimo {
+    background-color: rgb(8, 15, 66);
+    width: 18%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+    left: 18%;
+    margin-top: 2%;
+    transition: 0.5s all;
+  }
+
+  .conJeronimo:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 10px rgb(198, 255, 92);
+  }
+
+  .containerNomJe {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: -12%;
+    top: -13vw;
+  }
+
+  .nomJe {
+    font-size: 18px;
+    margin-left: -19%;
+  }
+
+  .roleJe {
+    font-size: 12px;
+    margin-top: -4%;
+    margin-left: -3%;
+    color: rgb(255, 255, 146);
+  }
+
+  .imgJe {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 25%;
+    border-radius: 130px;
+    margin-top: 30%;
+  }
+
+  .contacJe {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 1%;
+    top: -1vw;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .iconJe {
+    position: relative;
+    width: 15%;
+    height: 15%;
+    right: -45%;
+    margin-bottom: 15%;
+  }
+
+
+
+  .conRenso {
+    background-color: rgb(8, 15, 66);
+    width: 18%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+    left: 40%;
+    margin-top: -23.2%;
+    transition: 0.5s all;
+  }
+
+  .conRenso:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 10px rgb(198, 255, 92);
+  }
+
+  .containerNomRe {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: -12%;
+    top: -13vw;
+  }
+
+  .nomRe {
+    font-size: 18px;
+    margin-left: -19%;
+  }
+
+  .roleRe {
+    font-size: 12px;
+    margin-top: -3%;
+    margin-left: -4%;
+    color: rgb(255, 255, 146);
+  }
+
+  .imgRe {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 25%;
+    border-radius: 130px;
+    margin-top: 30%;
+  }
+
+  .contacRe {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 1%;
+    top: -1vw;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .iconRe {
+    position: relative;
+    width: 15%;
+    height: 15%;
+    right: -45%;
+    margin-bottom: 15%;
+  }
+
+  .conSebastian {
+    background-color: rgb(8, 15, 66);
+    width: 18%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+    left: 62%;
+    margin-top: -23.2%;
+    transition: 0.5s all;
+  }
+
+  .conSebastian:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 10px rgb(198, 255, 92);
+  }
+
+  .containerNomSe {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: -14%;
+    top: -13.5vw;
+  }
+
+  .nomSe {
+    font-size: 18px;
+    margin-left: -19%;
+  }
+
+  .roleSe {
+    font-size: 12px;
+    margin-top: -3%;
+    margin-left: -2%;
+    color: rgb(255, 255, 146);
+  }
+
+  .imgSe {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 25%;
+    border-radius: 130px;
+    margin-top: 30%;
+  }
+
+  .contacSe {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 1%;
+    top: -1vw;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .iconSe {
+    position: relative;
+    width: 15%;
+    height: 15%;
+    right: -45%;
+    margin-bottom: 15%;
+  }
+}

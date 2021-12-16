@@ -15,7 +15,7 @@ export default function User() {
     dispatch(logout());
     // history.push("/");
     navigate("/");
-    window.location.reload()
+    // window.location.reload()
   }
 
   return (
